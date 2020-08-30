@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gdcy.zyzzs.dao.InvalidMapper" >
+  <resultMap id="BaseResultMap" type="com.gdcy.zyzzs.pojo.Invalid" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="nodeId" property="nodeId" jdbcType="BIGINT" />
+    <result column="pId" property="pId" jdbcType="BIGINT" />
+    <result column="num" property="num" jdbcType="DOUBLE" />
+    <result column="reason" property="reason" jdbcType="VARCHAR" />
+    <result column="isDelete" property="isDelete" jdbcType="INTEGER" />
+    <result column="addUserId" property="addUserId" jdbcType="BIGINT" />
+    <result column="addTime" property="addTime" jdbcType="TIMESTAMP" />
+    <result column="updateUserId" property="updateUserId" jdbcType="BIGINT" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleteUserId" property="deleteUserId" jdbcType="BIGINT" />
+    <result column="deleteTime" property="deleteTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, nodeId, pId, num, reason, isDelete, addUserId, addTime, updateUserId, updateTime, 
+    deleteUserId, deleteTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_invalid
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tb_invalid
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.gdcy.zyzzs.pojo.Invalid" >
+    insert into tb_invalid (id, nodeId, pId, 
+      num, reason, isDelete, 
+      addUserId, addTime, updateUserId, 
+      updateTime, deleteUserId, deleteTime
+      )
+    values (#{id,jdbcType=BIGINT}, #{nodeId,jdbcType=BIGINT}, #{pId,jdbcType=BIGINT}, 
+      #{num,jdbcType=DOUBLE}, #{reason,jdbcType=VARCHAR}, #{isDelete,jdbcType=INTEGER}, 
+      #{addUserId,jdbcType=BIGINT}, #{addTime,jdbcType=TIMESTAMP}, #{updateUserId,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{deleteUserId,jdbcType=BIGINT}, #{deleteTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gdcy.zyzzs.pojo.Invalid" >
+    insert into tb_invalid
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="nodeId != null" >
+        nodeId,
+      </if>
+      <if test="pId != null" >
+        pId,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="reason != null" >
+        reason,
+      </if>
+      <if test="isDelete != null" >
+        isDelete,
+      </if>
+      <if test="addUserId != null" >
+        addUserId,
+      </if>
+      <if test="addTime != null" >
+        addTime,
+      </if>
+      <if test="updateUserId != null" >
+        updateUserId,
+      </if>
+      <if test="updateTime != null" >
+        updateTime,
+      </if>
+      <if test="deleteUserId != null" >
+        deleteUserId,
+      </if>
+      <if test="deleteTime != null" >
+        deleteTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="nodeId != null" >
+        #{nodeId,jdbcType=BIGINT},
+      </if>
+      <if test="pId != null" >
+        #{pId,jdbcType=BIGINT},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=DOUBLE},
+      </if>
+      <if test="reason != null" >
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="addUserId != null" >
+        #{addUserId,jdbcType=BIGINT},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserId != null" >
+        #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteUserId != null" >
+        #{deleteUserId,jdbcType=BIGINT},
+      </if>
+      <if test="deleteTime != null" >
+        #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gdcy.zyzzs.pojo.Invalid" >
+    update tb_invalid
+    <set >
+      <if test="nodeId != null" >
+        nodeId = #{nodeId,jdbcType=BIGINT},
+      </if>
+      <if test="pId != null" >
+        pId = #{pId,jdbcType=BIGINT},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=DOUBLE},
+      </if>
+      <if test="reason != null" >
+        reason = #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        isDelete = #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="addUserId != null" >
+        addUserId = #{addUserId,jdbcType=BIGINT},
+      </if>
+      <if test="addTime != null" >
+        addTime = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserId != null" >
+        updateUserId = #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteUserId != null" >
+        deleteUserId = #{deleteUserId,jdbcType=BIGINT},
+      </if>
+      <if test="deleteTime != null" >
+        deleteTime = #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gdcy.zyzzs.pojo.Invalid" >
+    update tb_invalid
+    set nodeId = #{nodeId,jdbcType=BIGINT},
+      pId = #{pId,jdbcType=BIGINT},
+      num = #{num,jdbcType=DOUBLE},
+      reason = #{reason,jdbcType=VARCHAR},
+      isDelete = #{isDelete,jdbcType=INTEGER},
+      addUserId = #{addUserId,jdbcType=BIGINT},
+      addTime = #{addTime,jdbcType=TIMESTAMP},
+      updateUserId = #{updateUserId,jdbcType=BIGINT},
+      updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      deleteUserId = #{deleteUserId,jdbcType=BIGINT},
+      deleteTime = #{deleteTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

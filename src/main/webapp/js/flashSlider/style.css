@@ -1,0 +1,21 @@
+@charset"utf-8";
+/*---------------------------样式归零 By 天涯浅唱 QQ：122452357----------------------*/
+em,img,li,ul{margin:0;padding:0;border:0;outline:0;font-size:100%;background:0 0;font-weight:400;font-style:inherit;font-family:inherit;vertical-align:top}
+body{line-height:1;color:#000;background:#fff;font-size:12px;font-family:'simsun'}
+article,aside,details,figcaption,figure,footer,header,hgroup,hr,menu,nav,section{display:block}
+nav ul,ol,ul{list-style:none}
+:focus,a{outline:0}
+a{margin:0;font-size:100 %;vertical-align:baseline;background:0 0;blr:expression(this.onFocus=this.blur())}
+a,ins{text-decoration:none}
+a,hr{padding:0}
+/*-------------------------归零样式END，请于样式表最前面调用-------------------------*/
+
+/*-----------------自定义按钮样式，移动端不需要，PC端根据实际情况选择----------------*/
+.demo {width: 390px;height: 288px;font-size: 14px;position:relative;text-align:left;}
+.demo a.control {position:absolute;display: block;top: 50%;margin-top: -78px;width: 76px;height: 112px;cursor: pointer;z-index: 2;background: url(../images/buttons.png) no-repeat}
+.demo a.prev {left: 0;background-position: 0 0}
+.demo a.next {right: 0;background-position: -76px 0}
+.demo a.prev:hover {background-position: 0 -112px}
+.demo a.next:hover {background-position: -76px -112px}
+/*----------------------------为保证最佳效果，建议设置如下样式------------------------*/
+.slider {display: none}

@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gdcy.zyzzs.dao.OriginPurchaseInputsMapper" >
+  <resultMap id="BaseResultMap" type="com.gdcy.zyzzs.pojo.OriginPurchaseInputs" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="nodeId" property="nodeId" jdbcType="BIGINT" />
+    <result column="pId" property="pId" jdbcType="BIGINT" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="purchaseType" property="purchaseType" jdbcType="INTEGER" />
+    <result column="sourceType" property="sourceType" jdbcType="INTEGER" />
+    <result column="upperReaches" property="upperReaches" jdbcType="INTEGER" />
+    <result column="purchaseBatchId" property="purchaseBatchId" jdbcType="VARCHAR" />
+    <result column="purchaseDate" property="purchaseDate" jdbcType="TIMESTAMP" />
+    <result column="organicFlag" property="organicFlag" jdbcType="INTEGER" />
+    <result column="transgenicFlag" property="transgenicFlag" jdbcType="INTEGER" />
+    <result column="principalId" property="principalId" jdbcType="VARCHAR" />
+    <result column="principalName" property="principalName" jdbcType="VARCHAR" />
+    <result column="purchaseAmount" property="purchaseAmount" jdbcType="DOUBLE" />
+    <result column="purchasePrice" property="purchasePrice" jdbcType="DOUBLE" />
+    <result column="purchaseUnit" property="purchaseUnit" jdbcType="VARCHAR" />
+    <result column="totalWeight" property="totalWeight" jdbcType="DOUBLE" />
+    <result column="manufacturerDate" property="manufacturerDate" jdbcType="TIMESTAMP" />
+    <result column="result" property="result" jdbcType="INTEGER" />
+    <result column="periodDate" property="periodDate" jdbcType="TIMESTAMP" />
+    <result column="manufacturerId" property="manufacturerId" jdbcType="VARCHAR" />
+    <result column="manufacturerName" property="manufacturerName" jdbcType="VARCHAR" />
+    <result column="license" property="license" jdbcType="VARCHAR" />
+    <result column="supplierId" property="supplierId" jdbcType="BIGINT" />
+    <result column="supplierName" property="supplierName" jdbcType="VARCHAR" />
+    <result column="isDelete" property="isDelete" jdbcType="INTEGER" />
+    <result column="addUserId" property="addUserId" jdbcType="BIGINT" />
+    <result column="addTime" property="addTime" jdbcType="TIMESTAMP" />
+    <result column="updateUserId" property="updateUserId" jdbcType="BIGINT" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleteUserId" property="deleteUserId" jdbcType="BIGINT" />
+    <result column="deleteTime" property="deleteTime" jdbcType="TIMESTAMP" />
+    <result column="isReport" property="isReport" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, nodeId, pId,  type, purchaseType,sourceType, upperReaches, purchaseBatchId, purchaseDate, 
+    organicFlag, transgenicFlag, principalId, principalName, purchaseAmount, purchasePrice, 
+    purchaseUnit, totalWeight, manufacturerDate, result, periodDate, manufacturerId, 
+    manufacturerName, license, supplierId, supplierName, isDelete, addUserId, addTime, 
+    updateUserId, updateTime, deleteUserId, deleteTime, isReport
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_origin_purchase_inputs
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tb_origin_purchase_inputs
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.gdcy.zyzzs.pojo.OriginPurchaseInputs" useGeneratedKeys="true" keyProperty="id">
+    insert into tb_origin_purchase_inputs (id, nodeId, pId, type,
+      purchaseType, sourceType, upperReaches, 
+      purchaseBatchId, purchaseDate, organicFlag, 
+      transgenicFlag, principalId, principalName, 
+      purchaseAmount, purchasePrice, purchaseUnit, 
+      totalWeight, manufacturerDate, result, 
+      periodDate, manufacturerId, manufacturerName, 
+      license, supplierId, supplierName, 
+      isDelete, addUserId, addTime, 
+      updateUserId, updateTime, deleteUserId, 
+      deleteTime, isReport)
+    values (#{id,jdbcType=BIGINT}, #{nodeId,jdbcType=BIGINT}, #{pId,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
+      #{purchaseType,jdbcType=INTEGER}, #{sourceType,jdbcType=INTEGER}, #{upperReaches,jdbcType=INTEGER}, 
+      #{purchaseBatchId,jdbcType=VARCHAR}, #{purchaseDate,jdbcType=TIMESTAMP}, #{organicFlag,jdbcType=INTEGER}, 
+      #{transgenicFlag,jdbcType=INTEGER}, #{principalId,jdbcType=VARCHAR}, #{principalName,jdbcType=VARCHAR}, 
+      #{purchaseAmount,jdbcType=DOUBLE}, #{purchasePrice,jdbcType=DOUBLE}, #{purchaseUnit,jdbcType=VARCHAR}, 
+      #{totalWeight,jdbcType=DOUBLE}, #{manufacturerDate,jdbcType=TIMESTAMP}, #{result,jdbcType=INTEGER}, 
+      #{periodDate,jdbcType=TIMESTAMP}, #{manufacturerId,jdbcType=VARCHAR}, #{manufacturerName,jdbcType=VARCHAR}, 
+      #{license,jdbcType=VARCHAR}, #{supplierId,jdbcType=BIGINT}, #{supplierName,jdbcType=VARCHAR}, 
+      #{isDelete,jdbcType=INTEGER}, #{addUserId,jdbcType=BIGINT}, #{addTime,jdbcType=TIMESTAMP}, 
+      #{updateUserId,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, #{deleteUserId,jdbcType=BIGINT}, 
+      #{deleteTime,jdbcType=TIMESTAMP}, #{isReport,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gdcy.zyzzs.pojo.OriginPurchaseInputs" useGeneratedKeys="true" keyProperty="id">
+    insert into tb_origin_purchase_inputs
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="nodeId != null" >
+        nodeId,
+      </if>
+      <if test="pId != null" >
+        pId,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="purchaseType != null" >
+        purchaseType,
+      </if>
+      <if test="sourceType != null" >
+        sourceType,
+      </if>
+      <if test="upperReaches != null" >
+        upperReaches,
+      </if>
+      <if test="purchaseBatchId != null" >
+        purchaseBatchId,
+      </if>
+      <if test="purchaseDate != null" >
+        purchaseDate,
+      </if>
+      <if test="organicFlag != null" >
+        organicFlag,
+      </if>
+      <if test="transgenicFlag != null" >
+        transgenicFlag,
+      </if>
+      <if test="principalId != null" >
+        principalId,
+      </if>
+      <if test="principalName != null" >
+        principalName,
+      </if>
+      <if test="purchaseAmount != null" >
+        purchaseAmount,
+      </if>
+      <if test="purchasePrice != null" >
+        purchasePrice,
+      </if>
+      <if test="purchaseUnit != null" >
+        purchaseUnit,
+      </if>
+      <if test="totalWeight != null" >
+        totalWeight,
+      </if>
+      <if test="manufacturerDate != null" >
+        manufacturerDate,
+      </if>
+      <if test="result != null" >
+        result,
+      </if>
+      <if test="periodDate != null" >
+        periodDate,
+      </if>
+      <if test="manufacturerId != null" >
+        manufacturerId,
+      </if>
+      <if test="manufacturerName != null" >
+        manufacturerName,
+      </if>
+      <if test="license != null" >
+        license,
+      </if>
+      <if test="supplierId != null" >
+        supplierId,
+      </if>
+      <if test="supplierName != null" >
+        supplierName,
+      </if>
+      <if test="isDelete != null" >
+        isDelete,
+      </if>
+      <if test="addUserId != null" >
+        addUserId,
+      </if>
+      <if test="addTime != null" >
+        addTime,
+      </if>
+      <if test="updateUserId != null" >
+        updateUserId,
+      </if>
+      <if test="updateTime != null" >
+        updateTime,
+      </if>
+      <if test="deleteUserId != null" >
+        deleteUserId,
+      </if>
+      <if test="deleteTime != null" >
+        deleteTime,
+      </if>
+      <if test="isReport != null" >
+        isReport,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="nodeId != null" >
+        #{nodeId,jdbcType=BIGINT},
+      </if>
+      <if test="pId != null" >
+        #{pId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="purchaseType != null" >
+        #{purchaseType,jdbcType=INTEGER},
+      </if>
+      <if test="sourceType != null" >
+        #{sourceType,jdbcType=INTEGER},
+      </if>
+      <if test="upperReaches != null" >
+        #{upperReaches,jdbcType=INTEGER},
+      </if>
+      <if test="purchaseBatchId != null" >
+        #{purchaseBatchId,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseDate != null" >
+        #{purchaseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="organicFlag != null" >
+        #{organicFlag,jdbcType=INTEGER},
+      </if>
+      <if test="transgenicFlag != null" >
+        #{transgenicFlag,jdbcType=INTEGER},
+      </if>
+      <if test="principalId != null" >
+        #{principalId,jdbcType=VARCHAR},
+      </if>
+      <if test="principalName != null" >
+        #{principalName,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseAmount != null" >
+        #{purchaseAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="purchasePrice != null" >
+        #{purchasePrice,jdbcType=DOUBLE},
+      </if>
+      <if test="purchaseUnit != null" >
+        #{purchaseUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="totalWeight != null" >
+        #{totalWeight,jdbcType=DOUBLE},
+      </if>
+      <if test="manufacturerDate != null" >
+        #{manufacturerDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="result != null" >
+        #{result,jdbcType=INTEGER},
+      </if>
+      <if test="periodDate != null" >
+        #{periodDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="manufacturerId != null" >
+        #{manufacturerId,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturerName != null" >
+        #{manufacturerName,jdbcType=VARCHAR},
+      </if>
+      <if test="license != null" >
+        #{license,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierId != null" >
+        #{supplierId,jdbcType=BIGINT},
+      </if>
+      <if test="supplierName != null" >
+        #{supplierName,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="addUserId != null" >
+        #{addUserId,jdbcType=BIGINT},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserId != null" >
+        #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteUserId != null" >
+        #{deleteUserId,jdbcType=BIGINT},
+      </if>
+      <if test="deleteTime != null" >
+        #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isReport != null" >
+        #{isReport,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gdcy.zyzzs.pojo.OriginPurchaseInputs" >
+    update tb_origin_purchase_inputs
+    <set >
+      <if test="nodeId != null" >
+        nodeId = #{nodeId,jdbcType=BIGINT},
+      </if>
+      <if test="pId != null" >
+        pId = #{pId,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="purchaseType != null" >
+        purchaseType = #{purchaseType,jdbcType=INTEGER},
+      </if>
+      <if test="sourceType != null" >
+        sourceType = #{sourceType,jdbcType=INTEGER},
+      </if>
+      <if test="upperReaches != null" >
+        upperReaches = #{upperReaches,jdbcType=INTEGER},
+      </if>
+      <if test="purchaseBatchId != null" >
+        purchaseBatchId = #{purchaseBatchId,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseDate != null" >
+        purchaseDate = #{purchaseDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="organicFlag != null" >
+        organicFlag = #{organicFlag,jdbcType=INTEGER},
+      </if>
+      <if test="transgenicFlag != null" >
+        transgenicFlag = #{transgenicFlag,jdbcType=INTEGER},
+      </if>
+      <if test="principalId != null" >
+        principalId = #{principalId,jdbcType=VARCHAR},
+      </if>
+      <if test="principalName != null" >
+        principalName = #{principalName,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseAmount != null" >
+        purchaseAmount = #{purchaseAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="purchasePrice != null" >
+        purchasePrice = #{purchasePrice,jdbcType=DOUBLE},
+      </if>
+      <if test="purchaseUnit != null" >
+        purchaseUnit = #{purchaseUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="totalWeight != null" >
+        totalWeight = #{totalWeight,jdbcType=DOUBLE},
+      </if>
+      <if test="manufacturerDate != null" >
+        manufacturerDate = #{manufacturerDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="result != null" >
+        result = #{result,jdbcType=INTEGER},
+      </if>
+      <if test="periodDate != null" >
+        periodDate = #{periodDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="manufacturerId != null" >
+        manufacturerId = #{manufacturerId,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturerName != null" >
+        manufacturerName = #{manufacturerName,jdbcType=VARCHAR},
+      </if>
+      <if test="license != null" >
+        license = #{license,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierId != null" >
+        supplierId = #{supplierId,jdbcType=BIGINT},
+      </if>
+      <if test="supplierName != null" >
+        supplierName = #{supplierName,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        isDelete = #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="addUserId != null" >
+        addUserId = #{addUserId,jdbcType=BIGINT},
+      </if>
+      <if test="addTime != null" >
+        addTime = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserId != null" >
+        updateUserId = #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteUserId != null" >
+        deleteUserId = #{deleteUserId,jdbcType=BIGINT},
+      </if>
+      <if test="deleteTime != null" >
+        deleteTime = #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isReport != null" >
+        isReport = #{isReport,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gdcy.zyzzs.pojo.OriginPurchaseInputs" >
+    update tb_origin_purchase_inputs
+    set nodeId = #{nodeId,jdbcType=BIGINT},
+      pId = #{pId,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      purchaseType = #{purchaseType,jdbcType=INTEGER},
+      sourceType = #{sourceType,jdbcType=INTEGER},
+      upperReaches = #{upperReaches,jdbcType=INTEGER},
+      purchaseBatchId = #{purchaseBatchId,jdbcType=VARCHAR},
+      purchaseDate = #{purchaseDate,jdbcType=TIMESTAMP},
+      organicFlag = #{organicFlag,jdbcType=INTEGER},
+      transgenicFlag = #{transgenicFlag,jdbcType=INTEGER},
+      principalId = #{principalId,jdbcType=VARCHAR},
+      principalName = #{principalName,jdbcType=VARCHAR},
+      purchaseAmount = #{purchaseAmount,jdbcType=DOUBLE},
+      purchasePrice = #{purchasePrice,jdbcType=DOUBLE},
+      purchaseUnit = #{purchaseUnit,jdbcType=VARCHAR},
+      totalWeight = #{totalWeight,jdbcType=DOUBLE},
+      manufacturerDate = #{manufacturerDate,jdbcType=TIMESTAMP},
+      result = #{result,jdbcType=INTEGER},
+      periodDate = #{periodDate,jdbcType=TIMESTAMP},
+      manufacturerId = #{manufacturerId,jdbcType=VARCHAR},
+      manufacturerName = #{manufacturerName,jdbcType=VARCHAR},
+      license = #{license,jdbcType=VARCHAR},
+      supplierId = #{supplierId,jdbcType=BIGINT},
+      supplierName = #{supplierName,jdbcType=VARCHAR},
+      isDelete = #{isDelete,jdbcType=INTEGER},
+      addUserId = #{addUserId,jdbcType=BIGINT},
+      addTime = #{addTime,jdbcType=TIMESTAMP},
+      updateUserId = #{updateUserId,jdbcType=BIGINT},
+      updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      deleteUserId = #{deleteUserId,jdbcType=BIGINT},
+      deleteTime = #{deleteTime,jdbcType=TIMESTAMP},
+      isReport = #{isReport,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <select id="selectByEntity" resultMap="BaseResultMap" parameterType="com.gdcy.zyzzs.pojo.OriginPurchaseInputs">
+  	select 
+	t1.*,t2.code,t2.name,t2.num as allNum,t3.regId as supplierRegId
+	from tb_origin_purchase_inputs t1
+	left join tb_inputs_manager t2 on t1.pId = t2.id 
+	left join sys_business t3 on t1.supplierId = t3.id
+	where 1=1
+	<if test="nodeId != null" >
+      and t1.nodeId = #{nodeId,jdbcType=BIGINT}
+    </if>
+    <if test="pId != null" >
+      and t1.pId like '%${pId}%' 
+    </if>
+    <if test="type != null" >
+      and t1.type = #{type,jdbcType=INTEGER}
+    </if>
+    <if test="purchaseType != null" >
+      and t1.purchaseType = #{purchaseType,jdbcType=INTEGER}
+    </if>
+    <if test="sourceType != null" >
+      and t1.sourceType = #{sourceType,jdbcType=INTEGER}
+    </if>
+    <if test="upperReaches != null" >
+      and t1.upperReaches = #{upperReaches,jdbcType=INTEGER}
+    </if>
+    <if test="purchaseBatchId != null" >
+      and t1.purchaseBatchId like '%${purchaseBatchId}%'
+    </if>
+    <if test="htmlStartDate!=null and htmlStartDate!=''">
+    	and date_format(t1.purchaseDate,'%Y-%m-%d') >= #{htmlStartDate}
+    </if>
+    <if test="htmlEndDate!=null and htmlEndDate!=''">
+    	<![CDATA[
+    		and date_format(t1.purchaseDate,'%Y-%m-%d') <= #{htmlEndDate} 
+    	]]>
+    </if>
+    <if test="organicFlag != null" >
+      and t1.organicFlag = #{organicFlag,jdbcType=INTEGER}
+    </if>
+    <if test="transgenicFlag != null" >
+      and t1.transgenicFlag = #{transgenicFlag,jdbcType=INTEGER}
+    </if>
+    <if test="principalId != null" >
+      and t1.principalId like '%${principalId}%' 
+    </if>
+    <if test="principalName != null" >
+      and t1.principalName like '%${principalName}%' 
+    </if>
+    <if test="manufacturerDate != null" >
+      and t1.manufacturerDate = #{manufacturerDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="result != null" >
+      and t1.result = #{result,jdbcType=INTEGER}
+    </if>
+    <if test="periodDate != null" >
+      and t1.periodDate = #{periodDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="manufacturerId != null" >
+      and t1.manufacturerId = #{manufacturerId,jdbcType=VARCHAR}
+    </if>
+    <if test="manufacturerName != null" >
+      and t1.manufacturerName like '%${manufacturerName}%' 
+    </if>
+    <if test="license != null" >
+      and t1.license like '%${license}%' 
+    </if>
+    <if test="supplierId != null" >
+      and t1.supplierId = #{supplierId,jdbcType=BIGINT}
+    </if>
+    <if test="supplierName != null" >
+      and t1.supplierName like '%${supplierName}%'
+    </if>
+    <if test="isDelete != null" >
+      and t1.isDelete = #{isDelete,jdbcType=INTEGER}
+    </if>
+    <if test="searchKey!=null and searchKey!=''">
+      and t1.purchaseBatchId like '%${searchKey}%'
+    </if>
+    <if test="isReport != null">
+		and t1.isReport = #{isReport,jdbcType=INTEGER}
+	</if>
+	<if test="searchFlag!=null">
+		order by t1.addTime desc
+	</if>
+	<if test="searchFlag==null">
+		order by t1.purchaseDate desc
+	</if>
+	<if test="offset != null and limit != null">
+		LIMIT #{offset},#{limit}
+	</if>
+  </select>
+  
+  <select id="countByEntity" resultType="java.lang.Integer" parameterType="com.gdcy.zyzzs.pojo.OriginPurchaseInputs">
+  	select 
+	count(t1.id)
+	from tb_origin_purchase_inputs t1
+	left join tb_inputs_manager t2 on t1.pId = t2.id 
+	left join sys_business t3 on t1.supplierId = t3.id
+	where 1=1
+	<if test="nodeId != null" >
+      and t1.nodeId = #{nodeId,jdbcType=BIGINT}
+    </if>
+    <if test="pId != null" >
+      and t1.pId like '%${pId}%' 
+    </if>
+    <if test="type != null" >
+      and t1.type = #{type,jdbcType=INTEGER}
+    </if>
+    <if test="purchaseType != null" >
+      and t1.purchaseType = #{purchaseType,jdbcType=INTEGER}
+    </if>
+    <if test="sourceType != null" >
+      and t1.sourceType = #{sourceType,jdbcType=INTEGER}
+    </if>
+    <if test="upperReaches != null" >
+      and t1.upperReaches = #{upperReaches,jdbcType=INTEGER}
+    </if>
+    <if test="purchaseBatchId != null" >
+      and t1.purchaseBatchId like '%${purchaseBatchId}%'
+    </if>
+    <if test="htmlStartDate!=null and htmlStartDate!=''">
+    	and date_format(t1.purchaseDate,'%Y-%m-%d') >= #{htmlStartDate}
+    </if>
+    <if test="htmlEndDate!=null and htmlEndDate!=''">
+    	<![CDATA[
+    		and date_format(t1.purchaseDate,'%Y-%m-%d') <= #{htmlEndDate} 
+    	]]>
+    </if>
+    <if test="organicFlag != null" >
+      and t1.organicFlag = #{organicFlag,jdbcType=INTEGER}
+    </if>
+    <if test="transgenicFlag != null" >
+      and t1.transgenicFlag = #{transgenicFlag,jdbcType=INTEGER}
+    </if>
+    <if test="principalId != null" >
+      and t1.principalId like '%${principalId}%' 
+    </if>
+    <if test="principalName != null" >
+      and t1.principalName like '%${principalName}%' 
+    </if>
+    <if test="manufacturerDate != null" >
+      and t1.manufacturerDate = #{manufacturerDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="result != null" >
+      and t1.result = #{result,jdbcType=INTEGER}
+    </if>
+    <if test="periodDate != null" >
+      and t1.periodDate = #{periodDate,jdbcType=TIMESTAMP}
+    </if>
+    <if test="manufacturerId != null" >
+      and t1.manufacturerId = #{manufacturerId,jdbcType=VARCHAR}
+    </if>
+    <if test="manufacturerName != null" >
+      and t1.manufacturerName like '%${manufacturerName}%' 
+    </if>
+    <if test="license != null" >
+      and t1.license like '%${license}%' 
+    </if>
+    <if test="supplierId != null" >
+      and t1.supplierId = #{supplierId,jdbcType=BIGINT}
+    </if>
+    <if test="supplierName != null" >
+      and t1.supplierName like '%${supplierName}%'
+    </if>
+    <if test="isDelete != null" >
+      and t1.isDelete = #{isDelete,jdbcType=INTEGER}
+    </if>
+    <if test="searchKey!=null and searchKey!=''">
+      and t1.purchaseBatchId like '%${searchKey}%'
+    </if>
+    <if test="isReport != null">
+		and t1.isReport = #{isReport,jdbcType=INTEGER}
+	</if>
+  </select>
+</mapper>

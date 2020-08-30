@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gdcy.zyzzs.dao.InputsManagerMapper" >
+  <resultMap id="BaseResultMap" type="com.gdcy.zyzzs.pojo.InputsManager" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="nodeId" property="nodeId" jdbcType="BIGINT" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="num" property="num" jdbcType="DOUBLE" />
+    <result column="defaultConsumption" property="defaultConsumption" jdbcType="DOUBLE" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="isDelete" property="isDelete" jdbcType="INTEGER" />
+    <result column="addUserId" property="addUserId" jdbcType="BIGINT" />
+    <result column="addTime" property="addTime" jdbcType="TIMESTAMP" />
+    <result column="updateUserId" property="updateUserId" jdbcType="BIGINT" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleteUserId" property="deleteUserId" jdbcType="BIGINT" />
+    <result column="deleteTime" property="deleteTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, nodeId, code, name,  type, defaultConsumption, num, unit, isDelete, addUserId, addTime, updateUserId, 
+    updateTime, deleteUserId, deleteTime
+  </sql>
+ <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_inputs_manager
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tb_inputs_manager
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.gdcy.zyzzs.pojo.InputsManager" >
+    insert into tb_inputs_manager (id, nodeId, code, 
+      name, type, num, defaultConsumption, 
+      unit, isDelete, addUserId, 
+      addTime, updateUserId, updateTime, 
+      deleteUserId, deleteTime)
+    values (#{id,jdbcType=BIGINT}, #{nodeId,jdbcType=BIGINT}, #{code,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{num,jdbcType=DOUBLE}, #{defaultConsumption,jdbcType=DOUBLE}, 
+      #{unit,jdbcType=VARCHAR}, #{isDelete,jdbcType=INTEGER}, #{addUserId,jdbcType=BIGINT}, 
+      #{addTime,jdbcType=TIMESTAMP}, #{updateUserId,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{deleteUserId,jdbcType=BIGINT}, #{deleteTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gdcy.zyzzs.pojo.InputsManager" >
+    insert into tb_inputs_manager
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="nodeId != null" >
+        nodeId,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="defaultConsumption != null" >
+        defaultConsumption,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="isDelete != null" >
+        isDelete,
+      </if>
+      <if test="addUserId != null" >
+        addUserId,
+      </if>
+      <if test="addTime != null" >
+        addTime,
+      </if>
+      <if test="updateUserId != null" >
+        updateUserId,
+      </if>
+      <if test="updateTime != null" >
+        updateTime,
+      </if>
+      <if test="deleteUserId != null" >
+        deleteUserId,
+      </if>
+      <if test="deleteTime != null" >
+        deleteTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="nodeId != null" >
+        #{nodeId,jdbcType=BIGINT},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=DOUBLE},
+      </if>
+      <if test="defaultConsumption != null" >
+        #{defaultConsumption,jdbcType=DOUBLE},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="addUserId != null" >
+        #{addUserId,jdbcType=BIGINT},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserId != null" >
+        #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteUserId != null" >
+        #{deleteUserId,jdbcType=BIGINT},
+      </if>
+      <if test="deleteTime != null" >
+        #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gdcy.zyzzs.pojo.InputsManager" >
+    update tb_inputs_manager
+    <set >
+      <if test="nodeId != null" >
+        nodeId = #{nodeId,jdbcType=BIGINT},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=DOUBLE},
+      </if>
+      <if test="defaultConsumption != null" >
+        defaultConsumption = #{defaultConsumption,jdbcType=DOUBLE},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        isDelete = #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="addUserId != null" >
+        addUserId = #{addUserId,jdbcType=BIGINT},
+      </if>
+      <if test="addTime != null" >
+        addTime = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserId != null" >
+        updateUserId = #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteUserId != null" >
+        deleteUserId = #{deleteUserId,jdbcType=BIGINT},
+      </if>
+      <if test="deleteTime != null" >
+        deleteTime = #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gdcy.zyzzs.pojo.InputsManager" >
+    update tb_inputs_manager
+    set nodeId = #{nodeId,jdbcType=BIGINT},
+      code = #{code,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      num = #{num,jdbcType=DOUBLE},
+      defaultConsumption = #{defaultConsumption,jdbcType=DOUBLE},
+      unit = #{unit,jdbcType=VARCHAR},
+      isDelete = #{isDelete,jdbcType=INTEGER},
+      addUserId = #{addUserId,jdbcType=BIGINT},
+      addTime = #{addTime,jdbcType=TIMESTAMP},
+      updateUserId = #{updateUserId,jdbcType=BIGINT},
+      updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      deleteUserId = #{deleteUserId,jdbcType=BIGINT},
+      deleteTime = #{deleteTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <select id="selectByEntity" resultMap="BaseResultMap" parameterType="com.gdcy.zyzzs.pojo.InputsManager">
+		select 
+		<include refid="Base_Column_List"/>
+		from tb_inputs_manager where 1=1
+		<if test="nodeId != null">
+			and nodeId = #{nodeId}
+		</if>
+		<if test="code != null and code != '' ">
+			and code like '%${code}%'
+		</if>
+		<if test="name != null and name != '' ">
+			and name like '%${name}%'
+		</if>
+		<if test="type != null" >
+	        and type = #{type,jdbcType=INTEGER}
+	    </if>
+		<if test="isDelete != null">
+			and isDelete = #{isDelete,jdbcType=INTEGER}
+		</if>
+		order by id desc
+		
+		<if test="offset != null and limit != null">
+			LIMIT #{offset},#{limit}
+		</if>
+	</select>
+	
+	<select id="countByEntity" resultType="java.lang.Integer" parameterType="com.gdcy.zyzzs.pojo.InputsManager">
+		select 
+		count(id)
+		from tb_inputs_manager where 1=1
+		<if test="nodeId != null">
+			and nodeId = #{nodeId}
+		</if>
+		<if test="code != null and code != '' ">
+			and code like '%${code}%'
+		</if>
+		<if test="name != null and name != '' ">
+			and name like '%${name}%'
+		</if>
+		<if test="type != null" >
+	        and type = #{type,jdbcType=INTEGER}
+	    </if>
+		<if test="isDelete != null">
+			and isDelete = #{isDelete,jdbcType=INTEGER}
+		</if>
+	</select>
+	
+	<select id="selectNumChangeRecord" resultType="Map" parameterType="com.gdcy.zyzzs.pojo.NumChangeRecord">
+		SELECT table_all.*, tb_inputs_manager.unit as unit FROM(
+			SELECT 
+			t01.id, t01.nodeId, 1 as flag, t01.pId, 
+			if(t01.purchaseAmount is not null and t01.purchaseAmount!=0, t01.purchaseAmount, t01.totalWeight) as num,
+			 t01.addTime, t01.updateTime,
+			"" as prodBatchId,t01.purchaseBatchId, "" as reason 
+			FROM tb_origin_purchase_inputs t01
+			WHERE 1=1
+			<if test="isDelete != null">
+				and t01.isDelete=#{isDelete}
+			</if>
+			<if test="pId != null">
+				and t01.pId=#{pId}
+			</if>
+			<if test="htmlStartDate != null and htmlStartDate != '' ">  
+				
+				and date_format(if(t01.updateTime is not null, t01.updateTime, t01.addTime),'%Y-%m-%d') >= #{htmlStartDate}   
+		    </if>  
+		    <if test="htmlEndDate != null and htmlEndDate != '' "> 
+				<![CDATA[ 
+				and date_format(if(t01.updateTime is not null, t01.updateTime, t01.addTime),'%Y-%m-%d') <= #{htmlEndDate} 
+				]]>   
+		    </if>
+			
+			UNION ALL
+			
+			SELECT 
+			t01.id, t01.nodeId, 2 as flag, t01.inputsId as pId, 
+			if(t01.amount is not null and t01.amount!=0, t01.amount, t01.weight) as num,
+			t01.addTime, t01.updateTime,
+			t01.prodBatchId as prodBatchId,"" as purchaseBatchId, "" as reason
+			FROM tb_origin_inputs_record t01
+			WHERE 1=1
+			<if test="isDelete != null">
+				and t01.isDelete=#{isDelete}
+			</if>
+			<if test="pId != null">
+				and t01.inputsId=#{pId}
+			</if>
+			<if test="htmlStartDate != null and htmlStartDate != '' ">  
+				and date_format(if(t01.updateTime is not null, t01.updateTime, t01.addTime),'%Y-%m-%d') >= #{htmlStartDate}   
+		    </if>  
+		    <if test="htmlEndDate != null and htmlEndDate != '' "> 
+				<![CDATA[ 
+				and date_format(if(t01.updateTime is not null, t01.updateTime, t01.addTime),'%Y-%m-%d') <= #{htmlEndDate} 
+				]]>   
+		    </if>
+			
+			UNION ALL
+			
+			SELECT 
+			t01.id, t01.nodeId, 3 as flag, t01.pId, t01.num, t01.addTime, t01.updateTime,
+			"" as prodBatchId,"" as purchaseBatchId, t01.reason
+			FROM tb_invalid t01
+			WHERE 1=1
+			<if test="isDelete != null">
+				and t01.isDelete=#{isDelete}
+			</if>
+			<if test="pId != null">
+				and t01.pId=#{pId}
+			</if>
+			<if test="htmlStartDate != null and htmlStartDate != '' ">  
+				and date_format(if(t01.updateTime is not null, t01.updateTime, t01.addTime),'%Y-%m-%d') >= #{htmlStartDate}   
+		    </if>  
+		    <if test="htmlEndDate != null and htmlEndDate != '' "> 
+				<![CDATA[ 
+				and date_format(if(t01.updateTime is not null, t01.updateTime, t01.addTime),'%Y-%m-%d') <= #{htmlEndDate} 
+				]]>   
+		    </if>
+			
+		) table_all
+		left join tb_inputs_manager on tb_inputs_manager.id = table_all.pId
+		
+		order by table_all.addTime desc
+		
+		<if test="offset != null and limit != null">
+			LIMIT #{offset},#{limit}
+		</if>
+	</select>
+	
+	<select id="countNumChangeRecord" resultType="java.lang.Integer" parameterType="com.gdcy.zyzzs.pojo.NumChangeRecord">
+		SELECT count(id) FROM(
+			SELECT 
+			t01.id, t01.nodeId, 1 as flag, t01.pId, 
+			if(t01.purchaseAmount is not null and t01.purchaseAmount!=0, t01.purchaseAmount, t01.totalWeight) as num,
+			 t01.addTime, t01.updateTime,
+			"" as prodBatchId,t01.purchaseBatchId, "" as reason 
+			FROM tb_origin_purchase_inputs t01
+			WHERE 1=1
+			<if test="isDelete != null">
+				and t01.isDelete=#{isDelete}
+			</if>
+			<if test="pId != null">
+				and t01.pId=#{pId}
+			</if>
+			<if test="htmlStartDate != null and htmlStartDate != '' ">  
+				
+				and date_format(if(t01.updateTime is not null, t01.updateTime, t01.addTime),'%Y-%m-%d') >= #{htmlStartDate}   
+		    </if>  
+		    <if test="htmlEndDate != null and htmlEndDate != '' "> 
+				<![CDATA[ 
+				and date_format(if(t01.updateTime is not null, t01.updateTime, t01.addTime),'%Y-%m-%d') <= #{htmlEndDate} 
+				]]>   
+		    </if>
+			
+			UNION ALL
+			
+			SELECT 
+			t01.id, t01.nodeId, 2 as flag, t01.inputsId as pId, 
+			if(t01.amount is not null and t01.amount!=0, t01.amount, t01.weight) as num,
+			t01.addTime, t01.updateTime,
+			t01.prodBatchId as prodBatchId,"" as purchaseBatchId, "" as reason
+			FROM tb_origin_inputs_record t01
+			WHERE 1=1
+			<if test="isDelete != null">
+				and t01.isDelete=#{isDelete}
+			</if>
+			<if test="pId != null">
+				and t01.inputsId=#{pId}
+			</if>
+			<if test="htmlStartDate != null and htmlStartDate != '' ">  
+				and date_format(if(t01.updateTime is not null, t01.updateTime, t01.addTime),'%Y-%m-%d') >= #{htmlStartDate}   
+		    </if>  
+		    <if test="htmlEndDate != null and htmlEndDate != '' "> 
+				<![CDATA[ 
+				and date_format(if(t01.updateTime is not null, t01.updateTime, t01.addTime),'%Y-%m-%d') <= #{htmlEndDate} 
+				]]>   
+		    </if>
+			
+			UNION ALL
+			
+			SELECT 
+			t01.id, t01.nodeId, 3 as flag, t01.pId, t01.num, t01.addTime, t01.updateTime,
+			"" as prodBatchId,"" as purchaseBatchId, t01.reason
+			FROM tb_invalid t01
+			WHERE 1=1
+			<if test="isDelete != null">
+				and t01.isDelete=#{isDelete}
+			</if>
+			<if test="pId != null">
+				and t01.pId=#{pId}
+			</if>
+			<if test="htmlStartDate != null and htmlStartDate != '' ">  
+				and date_format(if(t01.updateTime is not null, t01.updateTime, t01.addTime),'%Y-%m-%d') >= #{htmlStartDate}   
+		    </if>  
+		    <if test="htmlEndDate != null and htmlEndDate != '' "> 
+				<![CDATA[ 
+				and date_format(if(t01.updateTime is not null, t01.updateTime, t01.addTime),'%Y-%m-%d') <= #{htmlEndDate} 
+				]]>   
+		    </if>
+			
+		) table_all
+	</select>
+</mapper>

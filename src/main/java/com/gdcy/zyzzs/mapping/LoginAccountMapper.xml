@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gdcy.zyzzs.dao.LoginAccountMapper" >
+  <resultMap id="BaseResultMap" type="com.gdcy.zyzzs.pojo.LoginAccount" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="nodeId" property="nodeId" jdbcType="BIGINT" />
+    <result column="isDelete" property="isDelete" jdbcType="INTEGER" />
+    <result column="addTime" property="addTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleteTime" property="deleteTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, account, password, nodeId, isDelete, addTime, updateTime, deleteTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_login_account
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_login_account
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.gdcy.zyzzs.pojo.LoginAccount" >
+    insert into sys_login_account (id, name, account, 
+      password, nodeId, isDelete, 
+      addTime, updateTime, deleteTime
+      )
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{nodeId,jdbcType=BIGINT}, #{isDelete,jdbcType=INTEGER}, 
+      #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{deleteTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gdcy.zyzzs.pojo.LoginAccount" useGeneratedKeys="true" keyProperty="id">
+    insert into sys_login_account
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="account != null" >
+        account,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="nodeId != null" >
+        nodeId,
+      </if>
+      <if test="isDelete != null" >
+        isDelete,
+      </if>
+      <if test="addTime != null" >
+        addTime,
+      </if>
+      <if test="updateTime != null" >
+        updateTime,
+      </if>
+      <if test="deleteTime != null" >
+        deleteTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null" >
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeId != null" >
+        #{nodeId,jdbcType=BIGINT},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteTime != null" >
+        #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gdcy.zyzzs.pojo.LoginAccount" >
+    update sys_login_account
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null" >
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeId != null" >
+        nodeId = #{nodeId,jdbcType=BIGINT},
+      </if>
+      <if test="isDelete != null" >
+        isDelete = #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        addTime = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteTime != null" >
+        deleteTime = #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gdcy.zyzzs.pojo.LoginAccount" >
+    update sys_login_account
+    set name = #{name,jdbcType=VARCHAR},
+      account = #{account,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      nodeId = #{nodeId,jdbcType=BIGINT},
+      isDelete = #{isDelete,jdbcType=INTEGER},
+      addTime = #{addTime,jdbcType=TIMESTAMP},
+      updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      deleteTime = #{deleteTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+	<select id="selectByEntity" resultMap="BaseResultMap" parameterType="com.gdcy.zyzzs.pojo.LoginAccount">
+		select 
+		<include refid="Base_Column_List"/>
+		from sys_login_account where 1=1
+		<if test="account !=null and account !='' ">  
+			and account LIKE CONCAT('%', #{account},'%') 
+	    </if>
+	  	<if test="name !=null and name !='' ">  
+			and name LIKE CONCAT('%', #{name},'%') 
+	    </if> 
+	    <if test="htmlStartDate != null and htmlStartDate != '' ">  
+			and date_format(addTime,'%Y-%m-%d') >= #{htmlStartDate}   
+	    </if>  
+	    <if test="htmlEndDate != null and htmlEndDate != '' "> 
+			<![CDATA[ 
+			and date_format(addTime,'%Y-%m-%d') <= #{htmlEndDate} 
+			]]>   
+	    </if>
+		<if test="password != null and password !='' ">
+			and password=#{password}
+		</if>
+		<if test="nodeId != null">
+			and nodeId=#{nodeId}
+		</if>
+		<if test="isDelete != null">
+			and isDelete=#{isDelete}
+		</if>
+		order by account
+		
+		<if test="offset != null and limit != null">
+			LIMIT #{offset},#{limit}
+		</if>
+	</select>
+	
+	<select id="countByEntity" resultType="java.lang.Integer" parameterType="com.gdcy.zyzzs.pojo.LoginAccount">
+		select 
+		count(id)
+		from sys_login_account where 1=1
+		<if test="account !=null and account !='' ">  
+			and account LIKE CONCAT('%', #{account},'%') 
+	    </if>
+	  	<if test="name !=null and name !='' ">  
+			and name LIKE CONCAT('%', #{name},'%') 
+	    </if> 
+	    <if test="htmlStartDate != null and htmlStartDate != '' ">  
+			and date_format(addTime,'%Y-%m-%d') >= #{htmlStartDate}   
+	    </if>  
+	    <if test="htmlEndDate != null and htmlEndDate != '' "> 
+			<![CDATA[ 
+			and date_format(addTime,'%Y-%m-%d') <= #{htmlEndDate} 
+			]]>   
+	    </if>
+		<if test="password != null and password !='' ">
+			and password=#{password}
+		</if>
+		<if test="nodeId != null">
+			and nodeId=#{nodeId}
+		</if>
+		<if test="isDelete != null">
+			and isDelete=#{isDelete}
+		</if>
+	</select>
+	
+	<select id="LoginByAP" resultMap="BaseResultMap" parameterType="com.gdcy.zyzzs.pojo.LoginAccount">
+		select
+		<include refid="Base_Column_List" />
+		from sys_login_account
+		where 1=1
+		<if test="account !=null and password !=null">
+			and account = #{account,jdbcType=VARCHAR} and password =
+			#{password,jdbcType=VARCHAR}
+		</if>
+	</select>
+	
+</mapper>

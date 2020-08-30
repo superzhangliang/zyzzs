@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gdcy.zyzzs.dao.OriginOutInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.gdcy.zyzzs.pojo.OriginOutInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="nodeId" property="nodeId" jdbcType="BIGINT" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="outDate" property="outDate" jdbcType="TIMESTAMP" />
+    <result column="prodBatchId" property="prodBatchId" jdbcType="VARCHAR" />
+    <result column="harvestBatchId" property="harvestBatchId" jdbcType="VARCHAR" />
+    <result column="prodId" property="prodId" jdbcType="BIGINT" />
+    <result column="qty" property="qty" jdbcType="DOUBLE" />
+    <result column="weight" property="weight" jdbcType="DOUBLE" />
+    <result column="price" property="price" jdbcType="DOUBLE" />
+    <result column="destCode" property="destCode" jdbcType="VARCHAR" />
+    <result column="dest" property="dest" jdbcType="VARCHAR" />
+    <result column="transporterId" property="transporterId" jdbcType="VARCHAR" />
+    <result column="quarantineId" property="quarantineId" jdbcType="VARCHAR" />
+    <result column="traceCode" property="traceCode" jdbcType="VARCHAR" />
+    <result column="logisticsCode" property="logisticsCode" jdbcType="VARCHAR" />
+    <result column="buyerId" property="buyerId" jdbcType="BIGINT" />
+    <result column="buyerName" property="buyerName" jdbcType="VARCHAR" />
+    <result column="isDelete" property="isDelete" jdbcType="INTEGER" />
+    <result column="addUserId" property="addUserId" jdbcType="BIGINT" />
+    <result column="addTime" property="addTime" jdbcType="TIMESTAMP" />
+    <result column="updateUserId" property="updateUserId" jdbcType="BIGINT" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleteUserId" property="deleteUserId" jdbcType="BIGINT" />
+    <result column="deleteTime" property="deleteTime" jdbcType="TIMESTAMP" />
+    <result column="isReport" property="isReport" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, nodeId, type, outDate, prodBatchId, harvestBatchId, prodId, qty, weight, price, 
+    destCode, dest, transporterId, quarantineId, traceCode, logisticsCode, buyerId, buyerName, 
+    isDelete, addUserId, addTime, updateUserId, updateTime, deleteUserId, deleteTime, 
+    isReport
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select t01.*, t02.name as prodName
+    from tb_origin_out_info t01 left join tb_prod_manager t02 on t01.prodId = t02.id
+    where t01.id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tb_origin_out_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.gdcy.zyzzs.pojo.OriginOutInfo"  useGeneratedKeys="true" keyProperty="id">
+    insert into tb_origin_out_info (id, nodeId, type, 
+      outDate, prodBatchId, harvestBatchId, 
+      prodId, qty, weight, price, 
+      destCode, dest, transporterId, 
+      quarantineId, traceCode, logisticsCode, 
+      buyerId, buyerName, isDelete, 
+      addUserId, addTime, updateUserId, 
+      updateTime, deleteUserId, deleteTime, 
+      isReport)
+    values (#{id,jdbcType=BIGINT}, #{nodeId,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}, 
+      #{outDate,jdbcType=TIMESTAMP}, #{prodBatchId,jdbcType=VARCHAR}, #{harvestBatchId,jdbcType=VARCHAR}, 
+      #{prodId,jdbcType=BIGINT}, #{qty,jdbcType=DOUBLE}, #{weight,jdbcType=DOUBLE}, #{price,jdbcType=DOUBLE}, 
+      #{destCode,jdbcType=VARCHAR}, #{dest,jdbcType=VARCHAR}, #{transporterId,jdbcType=VARCHAR}, 
+      #{quarantineId,jdbcType=VARCHAR}, #{traceCode,jdbcType=VARCHAR}, #{logisticsCode,jdbcType=VARCHAR}, 
+      #{buyerId,jdbcType=BIGINT}, #{buyerName,jdbcType=VARCHAR}, #{isDelete,jdbcType=INTEGER}, 
+      #{addUserId,jdbcType=BIGINT}, #{addTime,jdbcType=TIMESTAMP}, #{updateUserId,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{deleteUserId,jdbcType=BIGINT}, #{deleteTime,jdbcType=TIMESTAMP}, 
+      #{isReport,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gdcy.zyzzs.pojo.OriginOutInfo"  useGeneratedKeys="true" keyProperty="id">
+    insert into tb_origin_out_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="nodeId != null" >
+        nodeId,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="outDate != null" >
+        outDate,
+      </if>
+      <if test="prodBatchId != null" >
+        prodBatchId,
+      </if>
+      <if test="harvestBatchId != null" >
+        harvestBatchId,
+      </if>
+      <if test="prodId != null" >
+        prodId,
+      </if>
+      <if test="qty != null" >
+        qty,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="destCode != null" >
+        destCode,
+      </if>
+      <if test="dest != null" >
+        dest,
+      </if>
+      <if test="transporterId != null" >
+        transporterId,
+      </if>
+      <if test="quarantineId != null" >
+        quarantineId,
+      </if>
+      <if test="traceCode != null" >
+        traceCode,
+      </if>
+      <if test="logisticsCode != null" >
+        logisticsCode,
+      </if>
+      <if test="buyerId != null" >
+        buyerId,
+      </if>
+      <if test="buyerName != null" >
+        buyerName,
+      </if>
+      <if test="isDelete != null" >
+        isDelete,
+      </if>
+      <if test="addUserId != null" >
+        addUserId,
+      </if>
+      <if test="addTime != null" >
+        addTime,
+      </if>
+      <if test="updateUserId != null" >
+        updateUserId,
+      </if>
+      <if test="updateTime != null" >
+        updateTime,
+      </if>
+      <if test="deleteUserId != null" >
+        deleteUserId,
+      </if>
+      <if test="deleteTime != null" >
+        deleteTime,
+      </if>
+      <if test="isReport != null" >
+        isReport,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="nodeId != null" >
+        #{nodeId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="outDate != null" >
+        #{outDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="prodBatchId != null" >
+        #{prodBatchId,jdbcType=VARCHAR},
+      </if>
+      <if test="harvestBatchId != null" >
+        #{harvestBatchId,jdbcType=VARCHAR},
+      </if>
+      <if test="prodId != null" >
+        #{prodId,jdbcType=BIGINT},
+      </if>
+      <if test="qty != null" >
+        #{qty,jdbcType=DOUBLE},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="destCode != null" >
+        #{destCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dest != null" >
+        #{dest,jdbcType=VARCHAR},
+      </if>
+      <if test="transporterId != null" >
+        #{transporterId,jdbcType=VARCHAR},
+      </if>
+      <if test="quarantineId != null" >
+        #{quarantineId,jdbcType=VARCHAR},
+      </if>
+      <if test="traceCode != null" >
+        #{traceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="logisticsCode != null" >
+        #{logisticsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerId != null" >
+        #{buyerId,jdbcType=BIGINT},
+      </if>
+      <if test="buyerName != null" >
+        #{buyerName,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="addUserId != null" >
+        #{addUserId,jdbcType=BIGINT},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserId != null" >
+        #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteUserId != null" >
+        #{deleteUserId,jdbcType=BIGINT},
+      </if>
+      <if test="deleteTime != null" >
+        #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isReport != null" >
+        #{isReport,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gdcy.zyzzs.pojo.OriginOutInfo" >
+    update tb_origin_out_info
+    <set >
+      <if test="nodeId != null" >
+        nodeId = #{nodeId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="outDate != null" >
+        outDate = #{outDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="prodBatchId != null" >
+        prodBatchId = #{prodBatchId,jdbcType=VARCHAR},
+      </if>
+      <if test="harvestBatchId != null" >
+        harvestBatchId = #{harvestBatchId,jdbcType=VARCHAR},
+      </if>
+      <if test="prodId != null" >
+        prodId = #{prodId,jdbcType=BIGINT},
+      </if>
+      <if test="qty != null" >
+        qty = #{qty,jdbcType=DOUBLE},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="destCode != null" >
+        destCode = #{destCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dest != null" >
+        dest = #{dest,jdbcType=VARCHAR},
+      </if>
+      <if test="transporterId != null" >
+        transporterId = #{transporterId,jdbcType=VARCHAR},
+      </if>
+      <if test="quarantineId != null" >
+        quarantineId = #{quarantineId,jdbcType=VARCHAR},
+      </if>
+      <if test="traceCode != null" >
+        traceCode = #{traceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="logisticsCode != null" >
+        logisticsCode = #{logisticsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerId != null" >
+        buyerId = #{buyerId,jdbcType=BIGINT},
+      </if>
+      <if test="buyerName != null" >
+        buyerName = #{buyerName,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        isDelete = #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="addUserId != null" >
+        addUserId = #{addUserId,jdbcType=BIGINT},
+      </if>
+      <if test="addTime != null" >
+        addTime = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserId != null" >
+        updateUserId = #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteUserId != null" >
+        deleteUserId = #{deleteUserId,jdbcType=BIGINT},
+      </if>
+      <if test="deleteTime != null" >
+        deleteTime = #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isReport != null" >
+        isReport = #{isReport,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gdcy.zyzzs.pojo.OriginOutInfo" >
+    update tb_origin_out_info
+    set nodeId = #{nodeId,jdbcType=BIGINT},
+      type = #{type,jdbcType=INTEGER},
+      outDate = #{outDate,jdbcType=TIMESTAMP},
+      prodBatchId = #{prodBatchId,jdbcType=VARCHAR},
+      harvestBatchId = #{harvestBatchId,jdbcType=VARCHAR},
+      prodId = #{prodId,jdbcType=BIGINT},
+      qty = #{qty,jdbcType=DOUBLE},
+      weight = #{weight,jdbcType=DOUBLE},
+      price = #{price,jdbcType=DOUBLE},
+      destCode = #{destCode,jdbcType=VARCHAR},
+      dest = #{dest,jdbcType=VARCHAR},
+      transporterId = #{transporterId,jdbcType=VARCHAR},
+      quarantineId = #{quarantineId,jdbcType=VARCHAR},
+      traceCode = #{traceCode,jdbcType=VARCHAR},
+      logisticsCode = #{logisticsCode,jdbcType=VARCHAR},
+      buyerId = #{buyerId,jdbcType=BIGINT},
+      buyerName = #{buyerName,jdbcType=VARCHAR},
+      isDelete = #{isDelete,jdbcType=INTEGER},
+      addUserId = #{addUserId,jdbcType=BIGINT},
+      addTime = #{addTime,jdbcType=TIMESTAMP},
+      updateUserId = #{updateUserId,jdbcType=BIGINT},
+      updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      deleteUserId = #{deleteUserId,jdbcType=BIGINT},
+      deleteTime = #{deleteTime,jdbcType=TIMESTAMP},
+      isReport = #{isReport,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <select id="selectByEntity" resultMap="BaseResultMap" parameterType="com.gdcy.zyzzs.pojo.OriginOutInfo">
+		select 
+		t01.* , t02.name as prodName
+		from tb_origin_out_info t01
+		left join tb_prod_manager t02 on t01.prodId = t02.id
+		where 1=1
+		<if test="prodBatchId != null and prodBatchId != '' ">
+			and t01.prodBatchId like '%${prodBatchId}%'
+		</if>
+		<if test="prodId != null and prodId != '' ">
+			and t01.prodId like '%${prodId}%'
+		</if>
+		<if test="type != null and type != '' ">
+			and t01.type like '%${type}%'
+		</if>
+	    <if test="htmlStartDate != null and htmlStartDate != '' ">  
+			and date_format(t01.outDate,'%Y-%m-%d') >= #{htmlStartDate}   
+	    </if>  
+	    <if test="htmlEndDate != null and htmlEndDate != '' "> 
+			<![CDATA[ 
+			and date_format(t01.outDate,'%Y-%m-%d') <= #{htmlEndDate} 
+			]]>   
+	    </if>
+	    <if test="nodeId != null">
+			and t01.nodeId = #{nodeId}
+		</if>
+		<if test="isDelete != null">
+			and t01.isDelete = #{isDelete,jdbcType=INTEGER}
+		</if>
+		<if test="searchKey != null and searchKey != '' ">
+			and traceCode like '${searchKey}%'
+		</if>
+		<if test="isReport != null">
+			and t01.isReport = #{isReport,jdbcType=INTEGER}
+		</if>
+		<if test="searchFlag!=null">
+			order by t01.addTime desc
+		</if>
+		<if test="searchFlag==null">
+			order by t01.outDate desc
+		</if>
+		
+		<if test="offset != null and limit != null">
+			LIMIT #{offset},#{limit}
+		</if>
+		
+	</select>
+	
+	<select id="countByEntity" resultType="java.lang.Integer" parameterType="com.gdcy.zyzzs.pojo.OriginOutInfo">
+		select 
+		count(id)
+		from tb_origin_out_info where 1=1
+		<if test="prodBatchId != null and prodBatchId != '' ">
+			and prodBatchId like '%${prodBatchId}%'
+		</if>
+		<if test="prodId != null and prodId != '' ">
+			and prodId like '%${prodId}%'
+		</if>
+		<if test="type != null and type != '' ">
+			and type like '%${type}%'
+		</if>
+	    <if test="htmlStartDate != null and htmlStartDate != '' ">  
+			and date_format(outDate,'%Y-%m-%d') >= #{htmlStartDate}   
+	    </if>  
+	    <if test="htmlEndDate != null and htmlEndDate != '' "> 
+			<![CDATA[ 
+			and date_format(outDate,'%Y-%m-%d') <= #{htmlEndDate} 
+			]]>   
+	    </if>
+	    <if test="nodeId != null">
+			and nodeId = #{nodeId}
+		</if>
+		<if test="isDelete != null">
+			and isDelete = #{isDelete,jdbcType=INTEGER}
+		</if>
+		<if test="isReport != null">
+			and t01.isReport = #{isReport,jdbcType=INTEGER}
+		</if>
+	</select>
+</mapper>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gdcy.zyzzs.dao.RoleToMenuMapper" >
+  <resultMap id="BaseResultMap" type="com.gdcy.zyzzs.pojo.RoleToMenu" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="roleId" property="roleId" jdbcType="BIGINT" />
+    <result column="menuId" property="menuId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, roleId, menuId
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_role_to_menu
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_role_to_menu
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.gdcy.zyzzs.pojo.RoleToMenu" >
+    insert into sys_role_to_menu (id, roleId, menuId
+      )
+    values (#{id,jdbcType=BIGINT}, #{roleId,jdbcType=BIGINT}, #{menuId,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gdcy.zyzzs.pojo.RoleToMenu" >
+    insert into sys_role_to_menu
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="roleId != null" >
+        roleId,
+      </if>
+      <if test="menuId != null" >
+        menuId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="roleId != null" >
+        #{roleId,jdbcType=BIGINT},
+      </if>
+      <if test="menuId != null" >
+        #{menuId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gdcy.zyzzs.pojo.RoleToMenu" >
+    update sys_role_to_menu
+    <set >
+      <if test="roleId != null" >
+        roleId = #{roleId,jdbcType=BIGINT},
+      </if>
+      <if test="menuId != null" >
+        menuId = #{menuId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gdcy.zyzzs.pojo.RoleToMenu" >
+    update sys_role_to_menu
+    set roleId = #{roleId,jdbcType=BIGINT},
+      menuId = #{menuId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+   <select id="selectByEntity" resultMap="BaseResultMap" parameterType="com.gdcy.zyzzs.pojo.RoleToMenu">
+		select 
+		<include refid="Base_Column_List"/>
+		from sys_role_to_menu where 1=1
+		<if test="roleId != null">
+			and roleId = #{roleId}
+		</if>
+		<if test="menuId != null">
+			and menuId = #{menuId}
+		</if>
+	</select>
+	
+	<insert id="batchInsert" parameterType="java.util.List">
+		insert into sys_role_to_menu  (roleId,menuId) values 
+		<foreach collection="list" item="item"  index="index" separator=",">
+			(#{item.roleId },#{item.menuId})
+		</foreach>
+	</insert>
+	
+	<delete id="deleteByMenuIds" parameterType="com.gdcy.zyzzs.pojo.RoleToMenu" >
+		delete from sys_role_to_menu 
+		where roleId = #{roleId} 
+		and menuId in
+		<foreach collection="list" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+	
+</mapper>

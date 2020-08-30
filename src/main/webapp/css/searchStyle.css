@@ -1,0 +1,53 @@
+@CHARSET "UTF-8";
+
+.searchStyle{width:100%;background-color: #F1F1F1;margin:3px auto 2px;}
+.searchStyle .checkboxLabel{margin-left:6px;}
+
+.searchStyle .btn{
+	border:1px solid #0e76d5;background:none;color:#0e76d5;cursor:pointer;margin:6px 4px;padding:3px 12px;font-weight:bold;
+	border-radius:4px 4px;-webkit-border-radius:4px 4px;-moz-border-radius:4px 4px;-ms-border-radius:4px 4px;display:inline-block;
+}
+.searchStyle .btn:hover{/* border:1px solid #2f91ea; */background:#0e76d5;color:#fff;}
+
+/* .searchStyle .btn-orange{color:#fff;font-weight: normal;border-color:#2f91e8;background: #2f91e8;}
+.searchStyle .btn-orange:hover{background: #0e76d5;}
+
+.searchStyle .btn-green{color:#fff;font-weight: normal;border-color:#2f91e8;background: #2f91e8;}
+.searchStyle .btn-green:hover{background: #0e76d5;}
+
+.searchStyle .btn-red{color:#fff;font-weight: normal;border-color:#2f91e8;background: #2f91e8;}
+.searchStyle .btn-red:hover{background: #0e76d5;}
+
+.searchStyle .searchModeBtn{background: #2f91e8;color:#fff;font-weight: normal;border-color:2f91e8;}
+.searchStyle .searchModeBtn:hover{background:#0e76d5;} */
+
+.skyblue{border:1px solid #BED5F3;background:#F4F6F9;box-sizing:border-box;}
+.skyblue .title{text-align:right;width:5.2em;overflow:hidden;line-height: 36px;}
+.skyblue .normalTd{overflow:hidden;line-height: 36px;}
+
+.skyblue .text,.skyblue .select{
+	border:1px solid #3190ea;background: #fff;color:#111;
+	padding:0px 4px;margin:6px 6px;line-height:1.5em;height:1.5em;width:8em;
+}
+
+.skyblue .inputDate{width:6em;}
+.skyblue .l-text-wrapper{margin:6px 6px;}
+.skyblue .l-text{height:22px;line-height:22px;border:1px solid #3190ea;width:7.9em;}
+.skyblue .l-text-field{height:20px;line-height:20px;}
+.skyblue .l-trigger-cancel{right:15px;}
+
+
+.searchTable td{display:block;float:left;}
+
+
+
+
+
+
+
+
+
+
+
+
+

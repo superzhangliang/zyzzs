@@ -1,0 +1,172 @@
+.menus_ul{
+	list-style-type: none;
+	padding: 0px;
+}
+.menus_ul li{
+	width: 176px;
+	height: 40px;
+	line-height: 40px;
+	margin-top: 5px;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bold;
+	background-color: #d7e1e9;
+	border-radius: 4px;
+	color: #48525e;
+	cursor: pointer;
+}
+.menus_ul li:hover{
+	background-color: #00a0e9;
+	color: #ffffff;
+}
+.menus_ul_li_selected{
+	background-color: #00a0e9 !important;
+	color: #ffffff !important;
+}
+.item_ul{
+	padding-left: 20px;
+}
+.item_ul li{
+	list-style-type: none;
+	width: 95%;
+	margin-top: 15px;
+	cursor: pointer;
+}
+.item_ul li:hover{
+	color: #f00;
+}
+.item_ul li:nth-child(1){
+	margin-top: 15px;
+}
+.item_ul li div:nth-child(1){
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	background-image: url(../images/icon_ul.jpg); 
+	background-repeat: no-repeat;
+	text-indent: 20px;
+	font-size: 16px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.item_ul li div span{
+	width: 100px;
+	background-image: url(../images/icon_date.png);
+	background-size: 16px 15px;
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-left: 5px;
+	font-size: 13px;
+	font-weight: normal;
+	color: #CCCCCC;
+	position: relative;
+	float: right;
+	right: 10px;
+}
+.item_ul li div:nth-child(2){
+	font-family: "Î¢ÈíÑÅºÚ";
+	padding-left: 20px;
+	font-size: 14px;
+}
+.dashed_line{
+	width: 100%; 
+	height: 1px; 
+	margin-top: 5px; 
+	border-bottom: 1px dashed #C2C2C2;
+}
+.news_title{
+	font-family: 'Microsoft Yahei', Î¢ÈíÑÅºÚ, ËÎÌå; 
+	font-weight: 700; 
+	font-size: 28px; 
+	line-height: 40px; 
+	text-align: center; 
+}
+.news_source_time{
+	text-align: center;
+	font-size: 13px; 
+	color: #929292; 
+	margin-top: 10px;
+}
+.news_content{
+	margin-top: 30px;
+	padding: 0px 15px 30px 15px;
+}
+.a_back{
+	font-size: 16px; 
+	letter-spacing: 1px; 
+	font-weight: bold; 
+	color: #015fa7;
+	cursor: pointer;
+}
+.query_input {
+	width: 300px; 
+	height: 25px; 
+	background-image: url(../images/icon_search.png); 
+	background-size: 20px 15px; 
+	background-position-x: 5px;
+	background-position-y: center;
+	background-repeat: no-repeat;
+	padding-left: 40px;
+	outline: none;
+	border: 1px solid #c2c2c2;
+	text-align: left;
+	color:#22a3e7;
+	font-size: 18px;
+}
+.query_btn {
+	background-image: url('../images/btn_bg.jpg'); 
+	width: 110px; 
+	height: 36px; 
+	outline: none; 
+	color: #FFFFFF; 
+	font-family: '·½ÕýÀ¼Í¤';
+	font-size: 20px;
+	margin-left: 15px;
+	border: none;
+}
+.query_btn:hover{cursor: pointer;}
+.leave_table{
+	width: 95%;
+	margin: 0px auto;
+	font-family: '·½ÕýÀ¼Í¤';
+}
+.leave_table td:nth-child(1){
+	width: 34px;
+}
+.leave_btn{
+	width: 100px;
+	height: 32px;
+	margin-top: 10px;
+	background-image: url(../images/icon_leave_msg.png);
+	background-repeat: no-repeat;
+	background-position-x: 7px;
+	background-position-y: 5px;
+	background-color: #00A9F6;
+	padding-left: 25px;
+	border: none;
+	border-radius: 5px;
+	font-family: "ËÎÌå";
+	font-weight: bold;
+	font-size: 14px;
+	color: #FFFFFF;
+	cursor: pointer;
+	outline: none;
+}
+.leave_btn:hover{
+	background-color: #079de1;
+}
+.table_market{
+	font-family: "ËÎÌå";width:95%;margin-left:10px;border-collapse:separate;border-spacing:3px 10px;
+}
+.table_market .table_market_head{
+	line-height:30px
+}
+.table_market .table_market_head td{
+	font-size: 18px; color: #00a1ea; background-color: #f8f8f8;text-align:center;
+}
+.table_market .table_market_item td{
+	font-size: 16px;text-align:center;
+}
+.market_dashed_line{
+	margin-left:15px;height: 1px;width:93%;border-bottom:1px dashed #C2C2C2;
+}

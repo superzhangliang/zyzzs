@@ -1,0 +1,294 @@
+@charset "utf-8";
+/*!
+ * @名称：base.css
+ * @功能：1、重设浏览器默认样式
+ *       2、设置通用原子类
+ */
+*{font-family: "宋体","微软雅黑","Arial, Lucida Grande, Tahoma","宋体" }
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html { background:white; color:black;height:100%; }
+body{height:100%;box-sizing:border-box;}
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { margin:0; padding:0; }
+/* 要注意表单元素并不继承父级 font 的问题 */
+body,button,input,select,textarea { font-size:16px;font-family: "宋体","微软雅黑","Arial, Lucida Grande, Tahoma","宋体" }
+input,select,textarea { font-size:100%;	border:1px solid #AECAF0; }
+/* 去掉 table cell 的边距并让其边重合 */
+table { border-collapse:collapse; border-spacing:0; }
+/* ie bug：th 不继承 text-align */
+th { text-align:inherit; }
+/* 去除默认边框 */
+fieldset,img { border:none; }
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe { display:block; }
+/* 去掉 firefox 下此元素的边框 */
+abbr,acronym { border:none; font-variant:normal; }
+/* 一致的 del 样式 */
+del { text-decoration:line-through; }
+address,caption,cite,code,dfn,em,th,var { font-style:normal; font-weight:500; }
+/* 去掉列表前的标识，li 会继承 */
+ol,ul { list-style:none; }
+/* 对齐是排版最重要的因素，别让什么都居中 */
+caption,th { text-align:left; }
+/* 来自yahoo，让标题都自定义，适应多个系统应用 */
+/*h1,h2,h3,h4,h5,h6 { font-size:100%; font-weight:500; }*/
+q:before,q:after { content:''; }
+/* 统一上标和下标 */
+sub,sup { font-size:75%; line-height:0; position:relative; vertical-align:baseline; }
+sup { top:-0.5em; }
+sub { bottom:-0.25em; }
+/* 让链接在 hover 状态下显示下划线 */
+a:hover { text-decoration:underline; }
+/* 默认不显示下划线，保持页面简洁 */
+ins,a { text-decoration:none; }
+/* 去除 ie6 & ie7 焦点点状线 */
+a:focus,*:focus { outline:none; }
+/* 清除浮动 */
+.clearfix:after,.clearfix:before{content:"";display:table}
+.clearfix:after{clear:both;overflow:hidden}
+.clearfix { zoom:1; /* for ie6 & ie7 */ }
+.clear{clear:both;display:block;font-size:0;height:0;line-height:0;overflow:hidden}
+/* 设置显示和隐藏，通常用来与 js 配合 */
+.hide{display:none}
+.block{display:block}
+/* 设置浮动，减少浮动带来的 bug */
+.fl,.fr{display:inline}
+.fl{float:left}
+.fr{float:right}
+/*font-size 大小(像素px)*/
+.fs-0px{font-size:0px;}
+.fs-2px{font-size:2px;}
+.fs-4px{font-size:4px;}
+.fs-6px{font-size:6px;}
+.fs-8px{font-size:8px;}
+.fs-10px{font-size:10px;}
+.fs-12px{font-size:12px;}
+.fs-14px{font-size:14px;}
+.fs-16px{font-size:16px;}
+.fs-18px{font-size:18px;}
+.fs-20px{font-size:20px;}
+.fs-22px{font-size:22px;}
+.fs-24px{font-size:24px;}
+.fs-26px{font-size:26px;}
+.fs-28px{font-size:28px;}
+.fs-30px{font-size:30px;}
+.fs-32px{font-size:32px;}
+.fs-34px{font-size:34px;}
+.fs-36px{font-size:36px;}
+.fs-38px{font-size:38px;}
+.fs-40px{font-size:40px;}
+.fs-42px{font-size:42px;}
+.fs-44px{font-size:44px;}
+.fs-46px{font-size:46px;}
+.fs-48px{font-size:48px;}
+/*font-size 大小(像素px)*/
+.fs-medium{font-size:medium}
+.fs-large{font-size:large}
+.fs-xlarge{font-size:x-large}
+.fs-xxlarge{font-size:xx-large}
+.fs-small{font-size:small}
+.fs-xsmall{font-size:x-small}
+.fs-xxsmall{font-size:xx-small}
+
+/*================================= 统一样式 =================================*/
+
+/*普通按钮*/
+.yztBtn{
+	position:relative;
+	font-size:1em;
+	margin:2px;
+	cursor:pointer;
+	display:inline-block;
+	text-align:center;
+	padding: 4px 8px;
+    border: 1px solid #c1c1c1;
+    border-radius: 2px;
+    background: #ffffff;
+    color:#333333;
+    background: -moz-linear-gradient(top, #ffffff, #f4f4f4);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#f4f4f4));
+    background: -o-linear-gradient(top, #ffffff, #f4f4f4);
+    background: -ms-linear-gradient(top, #ffffff 0%,#f4f4f4 100%);
+    background: linear-gradient(top, #ffffff, #f4f4f4);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f4f4f4');
+}
+
+.yztBtn:hover{
+	color:#fff;
+	border: 1px solid #0c88e0;
+	background: -moz-linear-gradient(top, #79C6FE, #0C88E0);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#79C6FE), to(#0C88E0));
+    background: -o-linear-gradient(top, #79C6FE, #0C88E0);
+    background: -ms-linear-gradient(top, #79C6FE 0%,#0C88E0 100%);
+    background: linear-gradient(top, #79C6FE, #0C88E0);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#79C6FE', endColorstr='#0C88E0');
+}
+.yztBtn:focus{
+	outline:rgba(0,0,0,0) solid 0;
+	box-shadow: 0 0 0 1px rgba(25,160,255,0.8)
+}
+
+.yztBtn_red{
+    border-radius: 2px;
+    background: #ffffff;
+    color:#ffffff;
+    border: 1px solid #ff0000;
+    background: #FF3333;
+    /*background: -moz-linear-gradient(top, #FD9696, #D20B0B);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#FD9696), to(#D20B0B));
+    background: -o-linear-gradient(top, #FD9696, #D20B0B);
+    background: -ms-linear-gradient(top, #FD9696 0%,#D20B0B 100%);
+    background: linear-gradient(top, #FD9696, #D20B0B);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FD9696', endColorstr='#D20B0B');*/
+}
+.yztBtn_red:hover{
+	color:#ffffff;
+	border: 1px solid #FF6363;
+	background: #FF6666;
+    /*background: -moz-linear-gradient(top, #FF6363, #AF1C1C);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#FF6363), to(#AF1C1C));
+    background: -o-linear-gradient(top, #FF6363, #AF1C1C);
+    background: -ms-linear-gradient(top, #FF6363 0%,#AF1C1C 100%);
+    background: linear-gradient(top, #FF6363, #AF1C1C);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF6363', endColorstr='#AF1C1C');*/
+}
+.yztBtn_red:focus{
+	outline:rgba(0,0,0,0) solid 0;
+	box-shadow: none;
+}
+
+.yztBtn_green{
+    border-radius: 2px;
+    background: #ffffff;
+    color:#ffffff;
+    border: 1px solid #268c31;
+    background: #66CC33;
+}
+.yztBtn_green:hover{
+	color:#ffffff;
+	border: 1px solid #144b1a;
+    background: #33FF99;
+}
+.yztBtn_green:focus{
+	outline:rgba(0,0,0,0) solid 0;
+	box-shadow: none;
+}
+
+.yztBtn_blue{
+    border-radius: 2px;
+    background: #ffffff;
+    color:#ffffff;
+    border: 1px solid #44BBC7;
+    background: #3366CC;/*#1474CD;*/
+}
+.yztBtn_blue:hover{
+	color:#ffffff;
+	border: 1px solid #2C60BF;
+    background: #508CC3;
+}
+.yztBtn_blue:focus{
+	outline:rgba(0,0,0,0) solid 0;
+	box-shadow: none;
+}
+
+/*高级搜索按钮*/
+.yztBtn-senior{
+	padding-right:25px;
+}
+.yztBtn-senior:before{
+	display:block;content:"";background: url('homeStyle-2/homeIcon.png');background-position: -243px -13px;
+	position:absolute;right:2px;top:50%;width:20px;height:20px;margin-top:-11px;
+}
+.yztBtn-senior.opened:before{
+	background-position: -289px -13px;
+}
+
+/*标题-大号 一号字体*/
+.fs-title-big{font-size:34px;}
+/*标题-默认 二号字体*/
+.fs-title{font-size:28px;}
+/*标题-小号 三号字体*/
+.fs-title-small{font-size:21px;}
+
+/*普通-大号  四号字体*/
+.fs-normal-big{font-size:18px;}
+/*普通-默认 小四字体*/
+.fs-normal{font-size:16px;}
+/*普通-小号 五号字体*/
+.fs-normal-small{font-size:14px;}
+
+/*
+小五＝9磅 ==(9/72)*96=12px
+五号＝10.5磅 ==(10.5/72)*96=14px
+小四＝12磅 ==(12/72)*96=16px
+四号＝14磅 ==(14/72)*96=18.67 =18px
+小三＝15磅 ==(15/72)*96=20px
+三号＝16磅 ==(16/72)*96=21.3 =21px
+小二＝18磅 ==(18/72)*96=24px
+二号＝22磅 ==(22/72)*96=29.3 =29px
+小一＝24磅 ==(24/72)*96=32px
+一号＝26磅 ==(26/72)*96=34.67 =34px
+小初＝36磅 ==(36/72)*96=48px
+初号＝42磅 ==(42/72)*96=56px
+*/
+
+.dialogdiv{margin:0 auto;display: none;}
+
+.dataTable{}
+.dataTable .yztBtn{margin:0 auto;}
+.dataTable th,
+.dataTable td{padding:.5rem .25rem;}
+.dataTable .title{text-align: right;width: auto;white-space:nowrap;}
+.dataTable .title.breakWord{white-space:normal;}
+.dataTable .input-text{width:100%;line-height:1.8rem;height: 1.8rem;border:1px solid #ccc;}
+.dataTable .select{width:100%;line-height:1.8rem;height: 1.8rem;border:1px solid #ccc;}
+
+.dataTable.dataTable-full{width:100%;}
+.dataTable-full .l-text{height: 1.8rem;}
+
+/*================================= 统一样式 =================================*/
+
+.listIcon{display:inline-block;width:28px;height:28px;background-repeat:no-repeat;vertical-align: top;}
+.listIcon-twarm_red{background-image:url(../listimgs/twarm_red.gif);background-position:0 1px;width:20px;}
+.listIcon-twarm_yellow{background-image:url(../listimgs/twarm_red.gif);background-position:0 1px;width:20px;}
+.listIcon-new{background-image:url(../listimgs/new.gif);background-position:0 8px;width:15px;}
+.listIcon-fast{background-image:url(../listimgs/fast.gif);background-position:1px 8px;width:16px;}
+.listIcon-agent{background-image:url(../listimgs/agent.png);background-position:-4px 3px;width:16px;}
+.listIcon-cui{background-image:url(../listimgs/cui.gif);background-position:1px 5px;width:18px;}
+.listIcon-finish{background-image:url(../listimgs/finish.gif);background-position:2px 8px;width: 16px;}
+.listIcon-fclose{background-image:url(../listimgs/fclose.gif);background-position:2px 8px;width: 18px;}
+.listIcon-zng{background-image:url(../listimgs/zng.gif);background-position:2px 8px;width: 18px;cursor: pointer;}
+.listIcon-up{background-image:url(../listimgs/up.gif);background-position:2px 8px;width: 16px;cursor: pointer;}
+.listIcon-deend{background-image:url(../listimgs/deend.gif);background-position:2px 8px;width: 18px;cursor: pointer;}
+.listIcon-del{background-image:url(../listimgs/del.gif);background-position:2px 8px;width: 16px;cursor: pointer;}
+.listIcon-show_all{background-image:url(../listimgs/show_all.gif);background-position:0px 8px;width: 16px;cursor: pointer;}
+.listIcon-gwjh{background-image:url(../listimgs/gwjh.gif);background-position:2px 8px;width: 16px;cursor: pointer;}
+.listIcon-gwjh-green{background-image:url(../listimgs/gwjh_green.gif);background-position:2px 8px;width: 16px;cursor: pointer;}
+.listIcon-edt{background-image:url(../listimgs/edt.gif);background-position:0px 8px;width: 16px;cursor: pointer;}
+.listIcon-deluser{background-image:url(../images/deluser.png);background-position:0px 8px;width: 16px;cursor: pointer;}
+.listIcon-opinion{background-image:url(../images/icon/opinion.gif);background-position:0px 8px;width: 16px;cursor: pointer;}
+.listIcon-lb{background-image:url(../images/lb.gif);background-position:0px 5px;width: 19px;cursor: pointer;}
+.listIcon-lb2{background-image:url(../images/lb2.gif);background-position:0px 5px;width: 19px;cursor: pointer;}
+
+.inner_table{text-align:center;width:70%;margin:20 auto;}
+.inner_table td{border:1px solid #347ECF;}
+
+a{color:blue;text-decoration:none;cursor: pointer;}
+a:hover{color:green;text-decoration:underline;cursor: pointer;}
+
+.treeDiv{height: 100%;overflow: auto !important;border: 1px solid #ccc;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

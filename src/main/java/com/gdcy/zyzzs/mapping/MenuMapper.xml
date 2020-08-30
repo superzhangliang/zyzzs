@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gdcy.zyzzs.dao.MenuMapper" >
+  <resultMap id="BaseResultMap" type="com.gdcy.zyzzs.pojo.Menu" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="pid" property="pid" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="orderNo" property="orderNo" jdbcType="INTEGER" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="isDefault" property="isDefault" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, pid, name, url, orderNo, icon, isDefault
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_menu
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_menu
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.gdcy.zyzzs.pojo.Menu" >
+    insert into sys_menu (id, pid, name, 
+      url, orderNo, icon, 
+      isDefault)
+    values (#{id,jdbcType=BIGINT}, #{pid,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{orderNo,jdbcType=INTEGER}, #{icon,jdbcType=VARCHAR}, 
+      #{isDefault,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gdcy.zyzzs.pojo.Menu" >
+    insert into sys_menu
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="orderNo != null" >
+        orderNo,
+      </if>
+      <if test="icon != null" >
+        icon,
+      </if>
+      <if test="isDefault != null" >
+        isDefault,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null" >
+        #{orderNo,jdbcType=INTEGER},
+      </if>
+      <if test="icon != null" >
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="isDefault != null" >
+        #{isDefault,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gdcy.zyzzs.pojo.Menu" >
+    update sys_menu
+    <set >
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null" >
+        orderNo = #{orderNo,jdbcType=INTEGER},
+      </if>
+      <if test="icon != null" >
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="isDefault != null" >
+        isDefault = #{isDefault,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gdcy.zyzzs.pojo.Menu" >
+    update sys_menu
+    set pid = #{pid,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      orderNo = #{orderNo,jdbcType=INTEGER},
+      icon = #{icon,jdbcType=VARCHAR},
+      isDefault = #{isDefault,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <select id="selectByEntity" resultMap="BaseResultMap" parameterType="com.gdcy.zyzzs.pojo.Menu">
+		select 
+		<include refid="Base_Column_List"/>
+		from sys_menu where 1=1
+		<if test="pid != null">
+			and pid=#{pid}
+		</if>
+		<if test="name != null">
+			and name=#{name}
+		</if>
+		<if test="isDefault != null">
+			and isDefault=#{isDefault}
+		</if>
+		order by orderNo
+	</select>
+	
+	<select id="countByEntity" resultType="java.lang.Integer" parameterType="com.gdcy.zyzzs.pojo.Menu">
+		select 
+		count(id)
+		from sys_menu where 1=1
+		<if test="pid != null">
+			and pid=#{pid}
+		</if>
+		<if test="name != null">
+			and name=#{name}
+		</if>
+		<if test="isDefault != null">
+			and isDefault=#{isDefault}
+		</if>
+	</select>
+	
+	<select id="getMenusByUserId" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+		SELECT t01.* FROM sys_menu t01
+		LEFT JOIN sys_role_to_menu t02 ON t01.id = t02.menuId
+		LEFT JOIN sys_account_to_role t03 ON t02.roleId = t03.roleId
+		WHERE t03.accountId = #{accountId,jdbcType=BIGINT}
+		
+		group by t01.id
+	</select>
+	
+	<select id="getMenusByRoleIds" resultMap="BaseResultMap">
+		SELECT * FROM sys_menu t01
+		LEFT JOIN sys_role_to_menu t02 ON t01.id = t02.menuId
+		WHERE t02.roleId IN
+		<foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+	       	#{item}  
+	   	</foreach> 	
+	</select>
+	
+	<update id="updateOldOrderNo" parameterType="com.gdcy.zyzzs.pojo.Menu" >
+		UPDATE  sys_menu 
+		SET orderNo = orderNo-1 
+		where pid=#{pid,jdbcType=BIGINT}  
+		AND orderNo > #{orderNo,jdbcType=DOUBLE}
+	</update>
+	
+	<!-- 更新同级orderno -->
+	<update id="updateAllOrderNo" parameterType="com.gdcy.zyzzs.pojo.Menu" >
+		UPDATE sys_menu SET orderNo = #{orderNo} WHERE pid = #{pid} AND orderNo =IF(#{flag}=1,#{orderNo}-1,#{orderNo}+1)
+	</update>
+	
+	<!-- 更新自身orderno -->
+	<update id="updateSelfOrderNo" parameterType="com.gdcy.zyzzs.pojo.Menu" >
+		UPDATE sys_menu SET orderNo = IF(#{flag}=1,#{orderNo}-1, #{orderNo}+1) WHERE id = #{id};
+	</update>
+	
+	<delete id="deleteByIds" parameterType="java.util.List" >
+	    <![CDATA[ 
+	    delete from sys_menu where id in
+	     ]]>
+		<foreach item= "item" index ="index" collection="list" open="(" separator="," close=")">  
+			#{item}  
+		</foreach> 
+	</delete>
+</mapper>

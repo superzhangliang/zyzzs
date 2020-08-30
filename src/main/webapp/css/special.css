@@ -1,0 +1,41 @@
+﻿@charset "utf-8";
+/* 特殊框架样式: 左边list列表, 右边table表格 */
+.specialFrame{height:100%;overflow:hidden;background:#FEFEFA;}
+.specialFrame>.container-fluid{height:100%;}
+.specialFrame>.container-fluid>.row{height:100%;}
+.specialFrame .specialFrame-list,
+.specialFrame .specialFrame-grid{height:100%;overflow:auto;}
+.specialFrame .specialFrame-list{padding: 0px;}
+
+/* 特殊框架内,表格下拉选项框样式 */
+.specialFrame .specialFrame-grid .dropdown-toggle{padding:3px 6px;}
+.specialFrame .specialFrame-grid .btn-group>.btn>.caret{margin-top:-4px;}
+
+/* 特殊弹窗样式 */
+.specialDialog .modal-header,
+.specialDialog .modal-footer{padding:4px 12px;}
+.specialDialog .btn{padding:4px 10px;vertical-align: middle;background-color:#fEfEfE!important;color:#333!important;border: 1px solid #aaa; border-radius: 4px;}
+.specialDialog .btn:hover{background-color:#EFEFEF!important;}
+
+/* 特殊搜索栏样式 */
+.specialSearch .specialForm-text{
+	height:24px;padding: 4px;box-sizing: content-box;vertical-align: middle;background-color: #fff;border: 1px solid #aaa; 
+	-webkit-border-radius: 4px !important;-moz-border-radius: 4px!important;-ms-border-radius: 4px!important;border-radius: 4px!important;
+	
+}
+.specialSearch .specialForm-select{height:24px;padding: 4px;box-sizing: content-box;background-color: #fff;border: 1px solid #aaa; border-radius: 4px;}
+.specialSearch .specialForm-text,
+.specialSearch .specialForm-select{margin-right:20px;line-height: 30px;}
+.specialSearch .specialForm-noMargin{margin-right: 0px;}
+.specialSearch .searchDiv{
+	margin-top:5px;padding:3px 15px;border:1px solid #ddd;-webkit-border-radius: 4px !important;-moz-border-radius: 4px!important;-ms-border-radius: 4px!important;border-radius: 4px!important;
+}
+.specialSearch .searchDiv>label{margin-bottom:0;vertical-align: top;}
+.specialSearch .searchDiv .btn{padding:6px;margin:0;display:inline-block;}
+
+.specialSearch .searchDiv>.btn,
+.specialSearch .searchDiv>label,
+.specialSearch .specialForm-select,
+.specialSearch .specialForm-select{
+	vertical-align: middle;
+}

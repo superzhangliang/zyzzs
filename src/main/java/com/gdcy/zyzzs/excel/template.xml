@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 导出数据模板 -->
+<tables>	
+	<table id="breedBatchInfo">
+		<field name="prodBatchId" cnname="养殖批次号" type="varchar" defaltValue="" handleClass=""/>
+		<field name="prodName" cnname="产品名称" type="varchar" defaltValue="" handleClass=""/>
+		<field name="prodStartDate" cnname="养殖开始日期" type="datetime" defaltValue="" handleClass="com.gdcy.zyzzs.excel.handler.GMTDateHandler"/>
+		<field name="qty" cnname="养殖数量" type="double" defaltValue="" handleClass=""/>
+	</table>
+	
+	<table id="plantBatchInfo">
+		<field name="prodBatchId" cnname="种植批次号" type="varchar" defaltValue="" handleClass=""/>
+		<field name="prodName" cnname="产品名称" type="varchar" defaltValue="" handleClass=""/>
+		<field name="prodStartDate" cnname="种植开始日期" type="datetime" defaltValue="" handleClass="com.gdcy.zyzzs.excel.handler.GMTDateHandler"/>
+		<field name="acreage" cnname="种植面积（亩）" type="double" defaltValue="" handleClass=""/>
+	</table>
+
+	<table id="breedInputsRecord">
+		<field name="prodBatchId" cnname="养殖批次号" type="varchar" defaltValue="" handleClass=""/>
+		<field name="inputsName" cnname="投入品名称" type="varchar" defaltValue="" handleClass=""/>
+		<field name="usedDate" cnname="使用日期" type="datetime" defaltValue="" handleClass="com.gdcy.zyzzs.excel.handler.GMTDateHandler"/>
+		<field name="amount" cnname="投入数量" type="double" defaltValue="" handleClass=""/>
+		<field name="weight" cnname="投入重量" type="double" defaltValue="" handleClass=""/>
+		<field name="unit" cnname="投入品使用单位" type="varchar" defaltValue="" handleClass=""/>
+	</table>
+	
+	<table id="plantInputsRecord">
+		<field name="prodBatchId" cnname="种植批次号" type="varchar" defaltValue="" handleClass=""/>
+		<field name="inputsName" cnname="投入品名称" type="varchar" defaltValue="" handleClass=""/>
+		<field name="usedDate" cnname="使用日期" type="datetime" defaltValue="" handleClass="com.gdcy.zyzzs.excel.handler.GMTDateHandler"/>
+		<field name="amount" cnname="投入数量" type="double" defaltValue="" handleClass=""/>
+		<field name="weight" cnname="投入重量" type="double" defaltValue="" handleClass=""/>
+		<field name="unit" cnname="投入品使用单位" type="varchar" defaltValue="" handleClass=""/>
+	</table>
+
+	<table id="breedOutInfo">
+		<field name="prodBatchId" cnname="养殖批次号" type="varchar" defaltValue="" handleClass=""/>
+		<field name="harvestBatchId" cnname="养殖收获批次号" type="varchar" defaltValue="" handleClass=""/>
+		<field name="prodName" cnname="产品名称" type="varchar" defaltValue="" handleClass=""/>
+		<field name="outDate" cnname="出场日期" type="datetime" defaltValue="" handleClass="com.gdcy.zyzzs.excel.handler.GMTDateHandler"/>
+		<field name="weight" cnname="重量" type="double" defaltValue="" handleClass=""/>
+		<field name="qty" cnname="数量" type="double" defaltValue="" handleClass=""/>
+		<field name="quarantineId" cnname="动物产地检疫合格证号或检测合格证号" type="varchar" defaltValue="" handleClass=""/>
+	</table>
+	
+	<table id="plantOutInfo">
+		<field name="prodBatchId" cnname="种植批次号" type="varchar" defaltValue="" handleClass=""/>
+		<field name="harvestBatchId" cnname="种植收获批次号" type="varchar" defaltValue="" handleClass=""/>
+		<field name="prodName" cnname="产品名称" type="varchar" defaltValue="" handleClass=""/>
+		<field name="outDate" cnname="出场日期" type="datetime" defaltValue="" handleClass="com.gdcy.zyzzs.excel.handler.GMTDateHandler"/>
+		<field name="weight" cnname="重量" type="double" defaltValue="" handleClass=""/>
+		<field name="qty" cnname="数量" type="double" defaltValue="" handleClass=""/>
+		<field name="quarantineId" cnname="产地证明号或检测合格证号" type="varchar" defaltValue="" handleClass=""/>
+	</table>
+	
+	<table id="inputsManagerInfo">
+		<field name="code" cnname="投入品编号" type="varchar" defaltValue="" handleClass=""/>
+		<field name="name" cnname="投入品名称" type="varchar" defaltValue="" handleClass=""/>
+		<field name="defaultConsumption" cnname="默认使用量" type="double" defaltValue="" handleClass=""/>
+		<field name="unit" cnname="投入品使用单位" type="varchar" defaltValue="" handleClass=""/>
+	</table>
+	
+	<table id="inputsManagerInfo">
+		<field name="code" cnname="投入品编号" type="varchar" defaltValue="" handleClass=""/>
+		<field name="name" cnname="投入品名称" type="varchar" defaltValue="" handleClass=""/>
+		<field name="defaultConsumption" cnname="默认使用量" type="double" defaltValue="" handleClass=""/>
+		<field name="unit" cnname="投入品使用单位" type="varchar" defaltValue="" handleClass=""/>
+	</table>
+	
+	<table id="purchaseInputs">
+		<field name="purchaseBatchId" cnname="采购批次号" type="varchar" defaltValue="" handleClass=""/>
+		<field name="name" cnname="投入品名称" type="varchar" defaltValue="" handleClass=""/>
+		<field name="purchaseDate" cnname="采购日期" type="double" defaltValue="" handleClass="com.gdcy.zyzzs.excel.handler.GMTDateHandler"/>
+		<field name="purchaseAmount" cnname="采购数量" type="double" defaltValue="" handleClass=""/>
+		<field name="totalWeight" cnname="采购重量" type="double" defaltValue="" handleClass=""/>
+		<field name="purchaseUnit" cnname="采购单位" type="varchar" defaltValue="" handleClass=""/>
+		<field name="supplierName" cnname="供应商名称" type="varchar" defaltValue="" handleClass=""/>
+	</table>
+	
+	<table id="breedHarvestInfo">
+		<field name="prodBatchId" cnname="养殖批次号" type="varchar" defaltValue="" handleClass=""/>
+		<field name="harvestBatchId" cnname="养殖收获批次号" type="varchar" defaltValue="" handleClass=""/>
+		<field name="prodName" cnname="产品名称" type="varchar" defaltValue="" handleClass=""/>
+		<field name="harvestDate" cnname="收获日期" type="datetime" defaltValue="" handleClass="com.gdcy.zyzzs.excel.handler.GMTDateHandler"/>
+		<field name="weight" cnname="重量" type="double" defaltValue="" handleClass=""/>
+		<field name="amount" cnname="数量" type="double" defaltValue="" handleClass=""/>
+		<field name="unit" cnname="计量单位" type="" defaltValue="" handleClass=""/>
+	</table>
+	
+	<table id="plantHarvestInfo">
+		<field name="prodBatchId" cnname="种植批次号" type="varchar" defaltValue="" handleClass=""/>
+		<field name="harvestBatchId" cnname="种植收获批次号" type="varchar" defaltValue="" handleClass=""/>
+		<field name="prodName" cnname="产品名称" type="varchar" defaltValue="" handleClass=""/>
+		<field name="harvestDate" cnname="收获日期" type="datetime" defaltValue="" handleClass="com.gdcy.zyzzs.excel.handler.GMTDateHandler"/>
+		<field name="weight" cnname="重量" type="double" defaltValue="" handleClass=""/>
+		<field name="amount" cnname="数量" type="double" defaltValue="" handleClass=""/>
+		<field name="unit" cnname="计量单位" type="" defaltValue="" handleClass=""/>
+	</table>
+</tables>

@@ -1,0 +1,115 @@
+@charset"utf-8";
+html,body{width:100%;height:100%;font-family: "Microsoft YaHei", "瀹嬩綋", "Arial, Lucida Grande, Tahoma", "寰蒋闆呴粦"}
+a{color:#000;}
+
+
+.page{width:100%;height:100%;}
+
+.header{border:0;position: absolute;top:0; left: 0;height:70px;line-height:70px;width:100%;color:#fff;overflow: hidden;z-index: 2;}
+.main{background: #f9f9f9;overflow: hidden;border:0;width:100%; position: relative;top:0;left:0;z-index: 2;}
+.footer{ border:0;position: absolute;top:100%; left: 0;height:80px;width:100%;margin-top:-80px;z-index: 2;}
+.container{width:1000px;position: relative;margin:0 auto;}
+
+.header .title{width:550px;float:left;height:70px;text-indent:0.25em;line-height:78px;font-weight:bold;font-family: "寰蒋闆呴粦", "瀹嬩綋", "Arial, Lucida Grande, Tahoma", "寰蒋闆呴粦"}
+.header .link{float:right;}
+.header .link li{float:left;text-align: center;line-height:60px;padding: 12px 20px;}
+.header .link .divider{height:14px;width:1px;font-size:0;margin:35px 0; padding:0;background:#fff;}
+.header .link li a{color:#fff;}
+.header .link li a:hover{color:deepskyblue}
+
+.footer .detail{width:100%;text-align: center;padding:30px 0 0;}
+.footer .detail a{cursor: pointer;padding:0 10px; color:#333;}
+.footer .detail a:hover{color:#f00;}
+.footer .attention{width:11em;margin:0 auto;height:20px;line-height: 20px;padding-top:15px;}
+.footer .attention .title{padding-right:8px;float:left;}
+.footer .attention .icon{float:left;margin-left:4px;width:20px;height:20px;cursor: pointer;}
+
+
+
+
+.mainCenter{position:absolute; top:0;left:50%;margin-left:-500px;width:1000px;}
+.loginArea{position: absolute;width:350px;height:400px;top:50%;right:0;margin-top:-200px;z-index: 99;}
+.loginArea .suitWidth{width:290px;margin-left:45px;margin-right:15px;}
+.loginArea .lightLine{width:8px;height:400px;position: absolute; top: 30px;left:0;background:url("lightLine.png") no-repeat;}
+.loginArea .title{line-height: 50px;text-align:center;color:#fff;margin-top:60px;margin-bottom:20px;font-family: "寰蒋闆呴粦", "瀹嬩綋", "Arial, Lucida Grande, Tahoma", "寰蒋闆呴粦"}
+
+.loginArea .input{height:36px; line-height: 36px;display: block;margin-top:5px;overflow: hidden;position: relative;vertical-align: middle}
+.loginArea .input .inputBg{z-index:-1;background-color:#ffffff;border-radius:18px; width: 100%;height:100%;position:absolute;top:0;left:0; }
+.loginArea .input .inputicon{z-index:4;width:20px;height:20px;float:left;margin:8px 0;margin-left:14px;}
+.loginArea .input input{z-index:4;line-height:24px;height:24px;padding:6px;border:0;width:218px;float:right; margin-right:18px;background:none;}
+
+.loginArea .tip{height:30px;line-height:30px;text-align: left;text-indent: 18px;color: #ffffff;}
+.loginArea .tip-red{color:#dd3333}
+.loginArea .tip-green{color:#33dd33}
+
+.loginArea .checkbox{display: block;float:left; color: #ffffff;vertical-align:top;line-height: 30px;cursor: pointer;}
+.loginArea .checkbox label{cursor: pointer;}
+.loginArea .checkbox .box{ width: 20px;height:20px;display: inline-block;vertical-align:middle;}
+.loginArea .checkbox .text{vertical-align:top;}
+.loginArea .checkbox:hover .text{ color:darkgreen;text-decoration:underline;}
+
+.inputCheckbox{display:none;vertical-align: top;}
+.inputCheckbox+.selectIcon{background-color:#ffffff;border:1px solid #cccccc;padding:9px;border-radius:50% 50%;display:inline-block;
+	position:relative;box-sizing: border-box;margin-bottom:-4px;margin-right:5px;}
+.inputCheckbox+.selectIcon:active,.inputCheckbox:checked+.selectIcon:active{}
+.inputCheckbox:checked+.selectIcon{background-color:#07c91d;border:1px solid #ffffff;padding:9px;}
+.inputCheckbox:checked+.selectIcon:after{content:'\2714';font-size:1rem;position:absolute;top:50%;left:50%;margin-left:-6px;margin-top:-14px;color:#ffffff;}
+
+
+.loginArea .btn{padding: 5px 0;border:0;border-radius:5px;border:1px solid #339933;line-height: 26px;cursor:pointer;margin-top:20px;margin-bottom:10px;}
+.loginArea .btn-green{background-color:#07c91d;color:#fff;}
+.loginArea .btn-green:hover{background-color:#33aa33;color:#fff;}
+
+.loginArea .help{line-height: 30px;height:30px;}
+.loginArea .help .floatLeft{float:left;color:#fff;}
+.loginArea .help .floatRight{float:right;color:#fff;}
+.loginArea .help .forgetKey:hover{color:darkgreen;}
+.loginArea .help .register:hover{color:darkgreen;}
+
+.full{width:100%;height:100%;}
+.opacity-80{filter:alpha(opacity=80); -moz-opacity:0.8; -khtml-opacity:0.8; opacity:0.8}
+.opacity-60{filter:alpha(opacity=60); -moz-opacity:0.6; -khtml-opacity:0.6; opacity:0.6}
+.opacity-40{filter:alpha(opacity=40); -moz-opacity:0.4; -khtml-opacity:0.4; opacity:0.4}
+.opacity-20{filter:alpha(opacity=20); -moz-opacity:0.2; -khtml-opacity:0.2; opacity:0.2}
+.opacity-0{filter:alpha(opacity=0); -moz-opacity:0; -khtml-opacity:0; opacity:0}
+.blackbg{background-color:#000;width:100%;height:100%;position: absolute;top:0;left:0;}
+
+
+.icon{background-image: url("loginIcon.png");background-repeat: no-repeat;}
+.icon-user{background-position:  0 0}
+.icon-lock{background-position:  -20px 0}
+.icon-weibo{background-position:  0 -20px}
+.icon-weixin{background-position:  -20px -20px}
+.icon-checked{background-position:  0 -40px}
+.icon-uncheck{background-position:  -20px -40px}
+
+.floatLeft{float:left !important;}
+.floatRight{float:right  !important;}
+
+.btn-green-gradient{
+	background: #03bf19;
+	background: -moz-linear-gradient(top,  #09cf20 0%, #00b815 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#09cf20), color-stop(100%,#00b815));
+	background: -webkit-linear-gradient(top,  #09cf20 0%,#00b815 100%);
+	background: -o-linear-gradient(top,  #09cf20 0%,#00b815 100%);
+	background: -ms-linear-gradient(top,  #09cf20 0%,#00b815 100%);
+	background: linear-gradient(to bottom,  #09cf20 0%,#00b815 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#09cf20', endColorstr='#00b815',GradientType=0 );
+}
+:root .gradient{filter:none;}
+
+
+.photosBox .bgColor-2{background-color:#1189cd}
+.photosBox .bgColor-3{background-color:#efc99d}
+.photosBox .img{width:70%;height:100%;margin:0 auto;background-position: left center;background-repeat: no-repeat;}
+
+
+
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0 1000px rgba(255,255,255,1) inset;
+	-webkit-text-fill-color: #333;
+}
+
+.title_img{width: 65px;height: 65xp;position: relative;top: 2px;}
+
+.title_text{width:100%;height:50px;position: relative;top: -18px;text-indent:0.25em;line-height:48px;font-weight:bold;font-family: 微软雅黑;}

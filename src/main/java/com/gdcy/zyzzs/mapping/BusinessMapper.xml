@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gdcy.zyzzs.dao.BusinessMapper" >
+  <resultMap id="BaseResultMap" type="com.gdcy.zyzzs.pojo.Business" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="regId" property="regId" jdbcType="VARCHAR" />
+    <result column="property" property="property" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="recordDate" property="recordDate" jdbcType="TIMESTAMP" />
+    <result column="legalRepresent" property="legalRepresent" jdbcType="VARCHAR" />
+    <result column="addr" property="addr" jdbcType="VARCHAR" />
+    <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="nodeId" property="nodeId" jdbcType="BIGINT" />
+    <result column="isDelete" property="isDelete" jdbcType="INTEGER" />
+    <result column="markType" property="markType" jdbcType="INTEGER" />
+    <result column="addTime" property="addTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleteTime" property="deleteTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, code, name, regId, property, type, recordDate, legalRepresent, addr, tel, nodeId, isDelete, markType, 
+    addTime, updateTime, deleteTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_business
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_business
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.gdcy.zyzzs.pojo.Business" >
+    insert into sys_business (id, code, name, 
+      regId, property, type, 
+      recordDate, legalRepresent, addr, tel, 
+      nodeId, isDelete, markType, addTime, 
+      updateTime, deleteTime)
+    values (#{id,jdbcType=BIGINT}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{regId,jdbcType=VARCHAR}, #{property,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
+      #{recordDate,jdbcType=TIMESTAMP}, #{legalRepresent,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{nodeId,jdbcType=BIGINT}, #{isDelete,jdbcType=INTEGER}, #{markType,jdbcType=INTEGER}, #{addTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{deleteTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gdcy.zyzzs.pojo.Business" >
+    insert into sys_business
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="regId != null" >
+        regId,
+      </if>
+      <if test="property != null" >
+        property,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="recordDate != null" >
+        recordDate,
+      </if>
+      <if test="legalRepresent != null" >
+        legalRepresent,
+      </if>
+      <if test="addr != null" >
+        addr,
+      </if>
+      <if test="tel != null" >
+        tel,
+      </if>
+      <if test="nodeId != null" >
+        nodeId,
+      </if>
+      <if test="isDelete != null" >
+        isDelete,
+      </if>
+      <if test="markType != null" >
+        markType,
+      </if>
+      <if test="addTime != null" >
+        addTime,
+      </if>
+      <if test="updateTime != null" >
+        updateTime,
+      </if>
+      <if test="deleteTime != null" >
+        deleteTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="regId != null" >
+        #{regId,jdbcType=VARCHAR},
+      </if>
+      <if test="property != null" >
+        #{property,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="recordDate != null" >
+        #{recordDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="legalRepresent != null" >
+        #{legalRepresent,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null" >
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeId != null" >
+        #{nodeId,jdbcType=BIGINT},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="markType != null" >
+        #{markType,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteTime != null" >
+        #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gdcy.zyzzs.pojo.Business" >
+    update sys_business
+    <set >
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="regId != null" >
+        regId = #{regId,jdbcType=VARCHAR},
+      </if>
+      <if test="property != null" >
+        property = #{property,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="recordDate != null" >
+        recordDate = #{recordDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="legalRepresent != null" >
+        legalRepresent = #{legalRepresent,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null" >
+        addr = #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeId != null" >
+        nodeId = #{nodeId,jdbcType=BIGINT},
+      </if>
+      <if test="isDelete != null" >
+        isDelete = #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="markType != null" >
+        markType = #{markType,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        addTime = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteTime != null" >
+        deleteTime = #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gdcy.zyzzs.pojo.Business" >
+    update sys_business
+    set code = #{code,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      regId = #{regId,jdbcType=VARCHAR},
+      property = #{property,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      recordDate = #{recordDate,jdbcType=TIMESTAMP},
+      legalRepresent = #{legalRepresent,jdbcType=VARCHAR},
+      addr = #{addr,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      nodeId = #{nodeId,jdbcType=BIGINT},
+      isDelete = #{isDelete,jdbcType=INTEGER},
+      markType = #{markType,jdbcType=INTEGER},
+      addTime = #{addTime,jdbcType=TIMESTAMP},
+      updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      deleteTime = #{deleteTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <select id="selectByEntity" resultMap="BaseResultMap" parameterType="com.gdcy.zyzzs.pojo.Business">
+		select 
+		<include refid="Base_Column_List"/>
+		from sys_business where 1=1
+		<if test="code != null and code != '' ">
+			and code like '%${code}%'
+		</if>
+		<if test="name != null and name != '' ">
+			and name like '%${name}%'
+		</if>
+		<if test="type != null" >
+        	and type = #{type,jdbcType=INTEGER}
+        </if>
+		<if test="regId != null and regId != '' ">
+			and regId like '%${regId}%'
+		</if>
+		<if test="isDelete != null">
+			and isDelete = #{isDelete,jdbcType=INTEGER}
+		</if>
+		<if test="nodeId != null">
+			and nodeId = #{nodeId}
+		</if>
+		<if test="idList != null and idList.size > 0">
+			AND markType IN
+			<foreach collection="idList" index="index" item="item" open="(" separator="," close=")">   
+	        	#{item}  
+	    	</foreach> 
+		</if>
+		
+		order by code desc
+		
+		<if test="offset != null and limit != null">
+			LIMIT #{offset},#{limit}
+		</if>
+	</select>
+	
+	<select id="countByEntity" resultType="java.lang.Integer" parameterType="com.gdcy.zyzzs.pojo.Business">
+		select 
+		count(id)
+		from sys_business where 1=1
+		<if test="code != null and code != '' ">
+			and code like '%${code}%'
+		</if>
+		<if test="name != null and name != '' ">
+			and name like '%${name}%'
+		</if>
+		<if test="type != null" >
+        	and type = #{type,jdbcType=INTEGER}
+        </if>
+		<if test="regId != null and regId != '' ">
+			and regId like '%${regId}%'
+		</if>
+		<if test="isDelete != null">
+			and isDelete = #{isDelete,jdbcType=INTEGER}
+		</if>
+		<if test="nodeId != null">
+			and nodeId = #{nodeId}
+		</if>
+		<if test="idList != null and idList.size > 0">
+			AND markType IN
+			<foreach collection="idList" index="index" item="item" open="(" separator="," close=")">   
+	        	#{item}  
+	    	</foreach> 
+		</if>
+	</select>
+	
+</mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!-- 导入数据模板 -->
+<tables>  
+	<table id="carinfo">
+		<field name="registerid" cnname="車輛註冊編號" type="varchar" defaltValue="" handleClass=""/>
+		<field name="type" cnname="車輛類別" type="varchar" defaltValue="" handleClass=""/>
+		<field name="used" cnname="車輛用途" type="varchar" defaltValue="" handleClass=""/>
+		<field name="brand" cnname="牌子" type="varchar" defaltValue="" handleClass=""/>
+		<field name="model" cnname="型號" type="varchar" defaltValue="" handleClass=""/>
+		<field name="color" cnname="車身顏色" type="varchar" defaltValue="" handleClass=""/>
+		<field name="bodyid" cnname="車身編號" type="varchar" defaltValue="" handleClass=""/>
+		<field name="motorid" cnname="馬達編號" type="varchar" defaltValue="" handleClass=""/>
+		<field name="motortype" cnname="馬達種類" type="varchar" defaltValue="" handleClass=""/>
+		<field name="fueltype" cnname="燃料種類" type="varchar" defaltValue="" handleClass=""/>
+		<field name="motorcapacity" cnname="馬達容量" type="varchar" defaltValue="" handleClass=""/>
+		<field name="horsepower" cnname="馬力" type="varchar" defaltValue="" handleClass=""/>
+		<field name="frontwheelnum" cnname="前輪胎數目" type="int" defaltValue="" handleClass="com.gdcy.zyzzs.excel.export.handler.NumberHandler"/>
+		<field name="rearwheelnum" cnname="後輪胎數目" type="int" defaltValue="" handleClass="com.gdcy.zyzzs.excel.export.handler.NumberHandler"/>
+		<field name="frontwheelsize" cnname="前輪胎尺寸" type="varchar" defaltValue="" handleClass=""/>
+		<field name="rearwheelsize" cnname="後輪胎尺寸" type="varchar" defaltValue="" handleClass=""/>
+		<field name="frontaxlenum" cnname="前 車 軸 數 目" type="int" defaltValue="" handleClass="com.gdcy.zyzzs.excel.export.handler.NumberHandler"/>
+		<field name="rearaxlenum" cnname="後 車 軸 數 目" type="int" defaltValue="" handleClass="com.gdcy.zyzzs.excel.export.handler.NumberHandler"/>
+		<field name="bodylength" cnname="車身長度(mm)" type="bigint" defaltValue="" handleClass="com.gdcy.zyzzs.excel.export.handler.NumberHandler"/>
+		<field name="bodywidth" cnname="車身闊度(mm)" type="bigint" defaltValue="" handleClass="com.gdcy.zyzzs.excel.export.handler.NumberHandler"/>
+		<field name="bodyheight" cnname="車身高度(mm)" type="bigint" defaltValue="" handleClass="com.gdcy.zyzzs.excel.export.handler.NumberHandler"/>
+		<field name="seatnum" cnname="座位數" type="int" defaltValue="" handleClass="com.gdcy.zyzzs.excel.export.handler.NumberHandler"/>
+		<field name="registertime" cnname="首次登記日期" type="varchar" defaltValue="" handleClass=""/>
+		<field name="bodyweight" cnname="車身重量(KG)" type="bigint" defaltValue="" handleClass="com.gdcy.zyzzs.excel.export.handler.NumberHandler"/>
+		<field name="totalweight" cnname="總重量(KG)" type="bigint" defaltValue="" handleClass="com.gdcy.zyzzs.excel.export.handler.NumberHandler"/>
+	</table>
+</tables> 

@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gdcy.zyzzs.dao.OriginInputsRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.gdcy.zyzzs.pojo.OriginInputsRecord" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="nodeId" property="nodeId" jdbcType="BIGINT" />
+    <result column="prodBatchId" property="prodBatchId" jdbcType="VARCHAR" />
+    <result column="inputsId" property="inputsId" jdbcType="BIGINT" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="inputsType" property="inputsType" jdbcType="INTEGER" />
+    <result column="usedDate" property="usedDate" jdbcType="TIMESTAMP" />
+    <result column="dailyConsumption" property="dailyConsumption" jdbcType="DOUBLE" />
+    <result column="amount" property="amount" jdbcType="DOUBLE" />
+    <result column="weight" property="weight" jdbcType="DOUBLE" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="principalId" property="principalId" jdbcType="VARCHAR" />
+    <result column="principalName" property="principalName" jdbcType="VARCHAR" />
+    <result column="isDelete" property="isDelete" jdbcType="INTEGER" />
+    <result column="addUserId" property="addUserId" jdbcType="BIGINT" />
+    <result column="addTime" property="addTime" jdbcType="TIMESTAMP" />
+    <result column="updateUserId" property="updateUserId" jdbcType="BIGINT" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleteUserId" property="deleteUserId" jdbcType="BIGINT" />
+    <result column="deleteTime" property="deleteTime" jdbcType="TIMESTAMP" />
+    <result column="isReport" property="isReport" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, nodeId, prodBatchId, inputsId, type,inputsType, usedDate, dailyConsumption,amount, weight, unit, principalId, 
+    principalName, isDelete, addUserId, addTime, updateUserId, updateTime, deleteUserId, 
+    deleteTime, isReport
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_origin_inputs_record
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tb_origin_inputs_record
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.gdcy.zyzzs.pojo.OriginInputsRecord"  useGeneratedKeys="true" keyProperty="id">
+    insert into tb_origin_inputs_record (id, nodeId, 
+      prodBatchId, inputsId, type, inputsType, 
+      usedDate, dailyConsumption, amount, 
+      weight, unit, principalId, 
+      principalName, isDelete, addUserId, 
+      addTime, updateUserId, updateTime, 
+      deleteUserId, deleteTime, isReport
+      )
+    values (#{id,jdbcType=BIGINT}, #{nodeId,jdbcType=BIGINT}, 
+      #{prodBatchId,jdbcType=VARCHAR}, #{inputsId,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}, #{inputsType,jdbcType=INTEGER}, 
+      #{usedDate,jdbcType=TIMESTAMP}, #{dailyConsumption,jdbcType=DOUBLE}, #{amount,jdbcType=DOUBLE}, 
+      #{weight,jdbcType=DOUBLE}, #{unit,jdbcType=VARCHAR}, #{principalId,jdbcType=VARCHAR}, 
+      #{principalName,jdbcType=VARCHAR}, #{isDelete,jdbcType=INTEGER}, #{addUserId,jdbcType=BIGINT}, 
+      #{addTime,jdbcType=TIMESTAMP}, #{updateUserId,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{deleteUserId,jdbcType=BIGINT}, #{deleteTime,jdbcType=TIMESTAMP}, #{isReport,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gdcy.zyzzs.pojo.OriginInputsRecord"  useGeneratedKeys="true" keyProperty="id">
+    insert into tb_origin_inputs_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="nodeId != null" >
+        nodeId,
+      </if>
+      <if test="prodBatchId != null" >
+        prodBatchId,
+      </if>
+      <if test="inputsId != null" >
+        inputsId,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="inputsType != null" >
+        inputsType,
+      </if>
+      <if test="usedDate != null" >
+        usedDate,
+      </if>
+      <if test="dailyConsumption != null" >
+        dailyConsumption,
+      </if>
+      <if test="amount != null" >
+        amount,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="principalId != null" >
+        principalId,
+      </if>
+      <if test="principalName != null" >
+        principalName,
+      </if>
+      <if test="isDelete != null" >
+        isDelete,
+      </if>
+      <if test="addUserId != null" >
+        addUserId,
+      </if>
+      <if test="addTime != null" >
+        addTime,
+      </if>
+      <if test="updateUserId != null" >
+        updateUserId,
+      </if>
+      <if test="updateTime != null" >
+        updateTime,
+      </if>
+      <if test="deleteUserId != null" >
+        deleteUserId,
+      </if>
+      <if test="deleteTime != null" >
+        deleteTime,
+      </if>
+      <if test="isReport != null" >
+        isReport,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="nodeId != null" >
+        #{nodeId,jdbcType=BIGINT},
+      </if>
+      <if test="prodBatchId != null" >
+        #{prodBatchId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputsId != null" >
+        #{inputsId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="inputsType != null" >
+        #{inputsType,jdbcType=INTEGER},
+      </if>
+      <if test="usedDate != null" >
+        #{usedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dailyConsumption != null" >
+        #{dailyConsumption,jdbcType=DOUBLE},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=DOUBLE},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="principalId != null" >
+        #{principalId,jdbcType=VARCHAR},
+      </if>
+      <if test="principalName != null" >
+        #{principalName,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="addUserId != null" >
+        #{addUserId,jdbcType=BIGINT},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserId != null" >
+        #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteUserId != null" >
+        #{deleteUserId,jdbcType=BIGINT},
+      </if>
+      <if test="deleteTime != null" >
+        #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isReport != null" >
+        #{isReport,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gdcy.zyzzs.pojo.OriginInputsRecord" >
+    update tb_origin_inputs_record
+    <set >
+      <if test="nodeId != null" >
+        nodeId = #{nodeId,jdbcType=BIGINT},
+      </if>
+      <if test="prodBatchId != null" >
+        prodBatchId = #{prodBatchId,jdbcType=VARCHAR},
+      </if>
+      <if test="inputsId != null" >
+        inputsId = #{inputsId,jdbcType=BIGINT},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="inputsType != null" >
+        inputsType = #{inputsType,jdbcType=INTEGER},
+      </if>
+      <if test="usedDate != null" >
+        usedDate = #{usedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dailyConsumption != null" >
+        dailyConsumption = #{dailyConsumption,jdbcType=DOUBLE},
+      </if>
+      <if test="amount != null" >
+        amount = #{amount,jdbcType=DOUBLE},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="principalId != null" >
+        principalId = #{principalId,jdbcType=VARCHAR},
+      </if>
+      <if test="principalName != null" >
+        principalName = #{principalName,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        isDelete = #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="addUserId != null" >
+        addUserId = #{addUserId,jdbcType=BIGINT},
+      </if>
+      <if test="addTime != null" >
+        addTime = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserId != null" >
+        updateUserId = #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteUserId != null" >
+        deleteUserId = #{deleteUserId,jdbcType=BIGINT},
+      </if>
+      <if test="deleteTime != null" >
+        deleteTime = #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isReport != null" >
+        isReport = #{isReport,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gdcy.zyzzs.pojo.OriginInputsRecord" >
+    update tb_origin_inputs_record
+    set 
+      nodeId = #{nodeId,jdbcType=BIGINT},
+      prodBatchId = #{prodBatchId,jdbcType=VARCHAR},
+      inputsId = #{inputsId,jdbcType=BIGINT},
+      type = #{type,jdbcType=INTEGER},
+      inputsType = #{inputsType,jdbcType=INTEGER},
+      usedDate = #{usedDate,jdbcType=TIMESTAMP},
+      dailyConsumption = #{dailyConsumption,jdbcType=DOUBLE},
+      amount = #{amount,jdbcType=DOUBLE},
+      weight = #{weight,jdbcType=DOUBLE},
+      unit = #{unit,jdbcType=VARCHAR},
+      principalId = #{principalId,jdbcType=VARCHAR},
+      principalName = #{principalName,jdbcType=VARCHAR},
+      isDelete = #{isDelete,jdbcType=INTEGER},
+      addUserId = #{addUserId,jdbcType=BIGINT},
+      addTime = #{addTime,jdbcType=TIMESTAMP},
+      updateUserId = #{updateUserId,jdbcType=BIGINT},
+      updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      deleteUserId = #{deleteUserId,jdbcType=BIGINT},
+      deleteTime = #{deleteTime,jdbcType=TIMESTAMP},
+      isReport = #{isReport,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+   <select id="selectByEntity" resultMap="BaseResultMap" parameterType="com.gdcy.zyzzs.pojo.OriginInputsRecord">
+		select 
+		t01.* ,t02.name as inputsName 
+		from tb_origin_inputs_record t01
+		left join tb_inputs_manager t02 on t02.id = t01.inputsId
+		
+		where 1=1
+		<if test="prodBatchId != null and prodBatchId != '' ">
+			and t01.prodBatchId like '%${prodBatchId}%'
+		</if>
+		<if test="inputsId != null ">
+			and t01.inputsId = #{inputsId}
+		</if>
+		<if test="type != null">
+			and t01.type = #{type}
+		</if>
+		<if test="inputsType != null">
+			and t01.inputsType = #{inputsType}
+		</if>
+	    <if test="htmlStartDate != null and htmlStartDate != '' ">  
+			and date_format(t01.usedDate,'%Y-%m-%d') >= #{htmlStartDate}   
+	    </if>  
+	    <if test="htmlEndDate != null and htmlEndDate != '' "> 
+			<![CDATA[ 
+			and date_format(t01.usedDate,'%Y-%m-%d') <= #{htmlEndDate} 
+			]]>   
+	    </if>
+	    <if test="nodeId != null">
+			and t01.nodeId = #{nodeId}
+		</if>
+		<if test="isDelete != null">
+			and t01.isDelete = #{isDelete,jdbcType=INTEGER}
+		</if>
+		<if test="isReport != null">
+			and t01.isReport = #{isReport,jdbcType=INTEGER}
+		</if>
+		order by t01.usedDate desc
+		
+		<if test="offset != null and limit != null">
+			LIMIT #{offset},#{limit}
+		</if>
+		
+	</select>
+	
+	<select id="countByEntity" resultType="java.lang.Integer" parameterType="com.gdcy.zyzzs.pojo.OriginInputsRecord">
+		select 
+		count(id)
+		from tb_origin_inputs_record where 1=1
+		<if test="prodBatchId != null and prodBatchId != '' ">
+			and prodBatchId like '%${prodBatchId}%'
+		</if>
+		<if test="inputsId != null ">
+			and inputsId = #{inputsId}
+		</if>
+		<if test="type != null">
+			and type = #{type}
+		</if>
+		<if test="inputsType != null">
+			and inputsType = #{inputsType}
+		</if>
+	    <if test="htmlStartDate != null and htmlStartDate != '' ">  
+			and date_format(usedDate,'%Y-%m-%d') >= #{htmlStartDate}   
+	    </if>  
+	    <if test="htmlEndDate != null and htmlEndDate != '' "> 
+			<![CDATA[ 
+			and date_format(usedDate,'%Y-%m-%d') <= #{htmlEndDate} 
+			]]>   
+	    </if>
+	    <if test="nodeId != null">
+			and nodeId = #{nodeId}
+		</if>
+		<if test="isDelete != null">
+			and isDelete = #{isDelete,jdbcType=INTEGER}
+		</if>
+		<if test="isReport != null">
+			and t01.isReport = #{isReport,jdbcType=INTEGER}
+		</if>
+	</select>
+</mapper>

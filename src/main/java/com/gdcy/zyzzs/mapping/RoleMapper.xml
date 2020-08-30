@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gdcy.zyzzs.dao.RoleMapper" >
+  <resultMap id="BaseResultMap" type="com.gdcy.zyzzs.pojo.Role" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="isManager" property="isManager" jdbcType="INTEGER" />
+    <result column="nodeId" property="nodeId" jdbcType="BIGINT" />
+    <result column="isDelete" property="isDelete" jdbcType="INTEGER" />
+    <result column="addTime" property="addTime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="deleteTime" property="deleteTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, description, isManager, nodeId, isDelete, addTime, updateTime, deleteTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_role
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_role
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.gdcy.zyzzs.pojo.Role" >
+    insert into sys_role (id, name, description, 
+      isManager, nodeId, isDelete, 
+      addTime, updateTime, deleteTime
+      )
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{isManager,jdbcType=INTEGER}, #{nodeId,jdbcType=BIGINT}, #{isDelete,jdbcType=INTEGER}, 
+      #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{deleteTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gdcy.zyzzs.pojo.Role"   useGeneratedKeys="true" keyProperty="id">
+    insert into sys_role
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="isManager != null" >
+        isManager,
+      </if>
+      <if test="nodeId != null" >
+        nodeId,
+      </if>
+      <if test="isDelete != null" >
+        isDelete,
+      </if>
+      <if test="addTime != null" >
+        addTime,
+      </if>
+      <if test="updateTime != null" >
+        updateTime,
+      </if>
+      <if test="deleteTime != null" >
+        deleteTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="isManager != null" >
+        #{isManager,jdbcType=INTEGER},
+      </if>
+      <if test="nodeId != null" >
+        #{nodeId,jdbcType=BIGINT},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteTime != null" >
+        #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gdcy.zyzzs.pojo.Role" >
+    update sys_role
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="isManager != null" >
+        isManager = #{isManager,jdbcType=INTEGER},
+      </if>
+      <if test="nodeId != null" >
+        nodeId = #{nodeId,jdbcType=BIGINT},
+      </if>
+      <if test="isDelete != null" >
+        isDelete = #{isDelete,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        addTime = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteTime != null" >
+        deleteTime = #{deleteTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gdcy.zyzzs.pojo.Role" >
+    update sys_role
+    set name = #{name,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      isManager = #{isManager,jdbcType=INTEGER},
+      nodeId = #{nodeId,jdbcType=BIGINT},
+      isDelete = #{isDelete,jdbcType=INTEGER},
+      addTime = #{addTime,jdbcType=TIMESTAMP},
+      updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      deleteTime = #{deleteTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+   <select id="selectByEntity" resultMap="BaseResultMap" parameterType="com.gdcy.zyzzs.pojo.Role">
+		select 
+		<include refid="Base_Column_List"/>
+		from sys_role where 1=1
+		<if test="name != null">
+			and name like '%${name}%'
+		</if>
+		<if test="description != null">
+			and description like '%${description}%'
+		</if>
+		<if test="isManager != null">
+			and isManager = #{isManager,jdbcType=INTEGER}
+		</if>
+		<if test="nodeId != null">
+			and nodeId = #{nodeId,jdbcType=BIGINT}
+		</if>
+		<if test="isDelete != null">
+			and isDelete = #{isDelete,jdbcType=INTEGER}
+		</if>
+		
+		<if test="offset != null and limit != null">
+			LIMIT #{offset},#{limit}
+		</if>
+	</select>
+	
+	<select id="countByEntity" resultType="java.lang.Integer" parameterType="com.gdcy.zyzzs.pojo.Role">
+		select 
+		count(id)
+		from sys_role where 1=1
+		<if test="name != null">
+			and name like '%${name}%'
+		</if>
+		<if test="description != null">
+			and description like '%${description}%'
+		</if>
+		<if test="isManager != null">
+			and isManager = #{isManager,jdbcType=INTEGER}
+		</if>
+		<if test="nodeId != null">
+			and nodeId = #{nodeId,jdbcType=BIGINT}
+		</if>
+		<if test="isDelete != null">
+			and isDelete = #{isDelete,jdbcType=INTEGER}
+		</if>
+	</select>
+	
+	<select id="isManager" resultType="java.lang.Integer" parameterType="java.lang.Long">
+		SELECT SUM(t01.isManager) FROM sys_role t01
+		LEFT JOIN sys_account_to_role t02 ON t01.id = t02.roleId
+		where t02.accountId = #{accountId};
+	</select>
+</mapper>
